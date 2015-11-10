@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>EMR entry</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/image-picker.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" />
+<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+<link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">EMR</a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#">Add new EMR entry</a></li>
+					<li><a href="#">Settings</a></li>
+					<li><a href="#">Profile</a></li>
+					<li><a href="#">Help</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="row row-offcanvas row-offcanvas-left">
+
+		<div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar"
+			role="navigation">
+
+			<ul class="nav nav-sidebar tabNavigate">
+				<li><a href="#personalDetails">Personal Details</a></li>
+				<li><a href="#primSurvey">Primary Survey</a></li>
+				<li><a href="#abc">Secondary Survey</a></li>
+				<li><a href="#medications">Medication</a></li>
+			</ul>
+		</div>
+		<!--/span-->
+
+		<div class="col-sm-9 col-md-10 main">
+
+			<!--toggle sidebar button-->
+			<p class="visible-xs">
+				<button type="button" class="btn btn-primary btn-xs"
+					data-toggle="offcanvas">
+					<i class="glyphicon glyphicon-chevron-left"></i>
+				</button>
+			</p>
+			<div id="personalDetails" style="display: none;">
+				<h1 class="page-header">Patient Personal details</h1>
+				<div class="row placeholders">
+					<form class="form-horizontal">
+
+						<!-- Text input-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="name">Name</label>
+							<div class="col-md-4">
+								<input id="name" name="name" type="text" placeholder=""
+									class="form-control input-md">
+
+							</div>
+						</div>
+
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">Date of Birth</label>
+							<div class="col-md-4 date">
+								<div class="input-group input-append date" id="dobDatePicker">
+									<input type="text" class="form-control" id="dob" name="dob"
+										placeholder="MM/DD/YYYY" /> <span
+										class="input-group-addon add-on"><span
+										class="glyphicon glyphicon-calendar"></span></span>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="form-group">
+							<label class="col-md-4 control-label">Arrival Time</label>
+							<div class="col-md-4 date">
+								<div class="input-group input-append date"
+									id="arrivalTimeDatePicker">
+									<input type="text" class="form-control" id="arrivalTime"
+										name="arrivalTime" placeholder="MM/DD/YYYY HH:MM AM/PM" /> <span
+										class="input-group-addon add-on"><span
+										class="glyphicon glyphicon-calendar"></span></span>
+								</div>
+							</div>
+						</div>
+
+						<!-- Select Basic -->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="arrivalMode">Arrival
+								Mode</label>
+							<div class="col-md-4">
+								<select id="arrivalMode"
+									class="image-picker show-labels show-html">
+									<option data-img-src="images/ambulance.png" value="ambulance">Ambulance</option>
+									<option data-img-src="images/car.png" value="car">Car</option>
+									<option data-img-src="images/walking.png" value="walkin">Walk-in</option>
+								</select>
+								<!-- <select id="arrivaalMode" name="arrivaalMode"
+									class="form-control">
+									<option value="ambulance">Ambulance</option>
+									<option value="car">Car</option>
+									<option value="walk-In">Walk-In</option>
+								</select> -->
+							</div>
+						</div>
+
+						<!-- Appended Input-->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="weight">Weight</label>
+							<div class="col-md-4">
+								<div class="input-group">
+									<input id="weight" name="weight" class="form-control"
+										placeholder="" type="text"> <span
+										class="input-group-addon">Kgs.</span>
+								</div>
+
+							</div>
+						</div>
+						<!-- Multiple Checkboxes (inline) -->
+						<div class="form-group">
+							<label class="col-md-4 control-label" for="Emergency Level">Emergency
+								Level</label>
+							<div class="col-md-4">
+								<label class="checkbox-inline" for="Emergency Level-0">
+									<input type="checkbox" name="Emergency Level"
+									id="Emergency Level-0" value="Level 1">
+									<p class="text-danger">Level 1</p>
+								</label> <label class="checkbox-inline" for="Emergency Level-1">
+									<input type="checkbox" name="Emergency Level"
+									id="Emergency Level-1" value="Level 2">
+									<p class="text-warning">Level 2</p>
+								</label> <label class="checkbox-inline" for="Emergency Level-2">
+									<input type="checkbox" name="Emergency Level"
+									id="Emergency Level-2" value="Level 3">
+									<p class="text-info">Level 3</p>
+								</label>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div id="primSurvey" style="display: none;">
+				<h1 class="page-header">Primary Survey</h1>
+				<div class="panel-group" id="accordion" role="tablist"
+					aria-multiselectable="true">
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingOne">
+							<h4 class="panel-title">
+								<a role="button" data-toggle="collapse" data-parent="#accordion"
+									href="#collapseOne" aria-expanded="true"
+									aria-controls="collapseOne"> Airway </a>
+							</h4>
+						</div>
+						<div id="collapseOne" class="panel-collapse collapse in"
+							role="tabpanel" aria-labelledby="headingOne">
+							<div class="panel-body">
+								<!-- <div class="funkyradio">
+										<div class="funkyradio-default">
+											<input type="radio" name="radio" id="radio1" /> <label
+												for="radio1">First Option default</label>
+										</div>
+										<div class="funkyradio-primary">
+											<input type="radio" name="radio" id="radio2" checked /> <label
+												for="radio2">Second Option primary</label>
+										</div>
+										<div class="funkyradio-success">
+											<input type="radio" name="radio" id="radio3" /> <label
+												for="radio3">Third Option success</label>
+										</div>
+										<div class="funkyradio-danger">
+											<input type="radio" name="radio" id="radio4" /> <label
+												for="radio4">Fourth Option danger</label>
+										</div>
+										<div class="funkyradio-warning">
+											<input type="radio" name="radio" id="radio5" /> <label
+												for="radio5">Fifth Option warning</label>
+										</div>
+										<div class="funkyradio-info">
+											<input type="radio" name="radio" id="radio6" /> <label
+												for="radio6">Sixth Option info</label>
+										</div>
+									</div> -->
+								<div class="container">
+
+
+									<div class="funkyradio">
+										<div class="row">
+											<div class="col-xs-6 col-sm-3">
+												<div class="funkyradio-success ">
+													<input type="checkbox" name="checkbox" id="checkbox1" /> <label
+														for="checkbox1">Patient</label>
+												</div>
+											</div>
+											<div class="col-xs-6 col-sm-3">
+												<div class="funkyradio-success">
+													<input type="checkbox" name="checkbox" id="checkbox2" /> <label
+														for="checkbox2">Stridor</label>
+												</div>
+											</div>
+
+											<div class="col-xs-6 col-sm-3">
+												<div class="funkyradio-success">
+													<input type="checkbox" name="checkbox" id="checkbox3" /> <label
+														for="checkbox3">NT Tube</label>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-xs-6 col-sm-3">
+												<div class="funkyradio-success">
+													<input type="checkbox" name="checkbox" id="checkbox4" /> <label
+														for="checkbox4">ET Tube</label>
+												</div>
+											</div>
+											<div class="col-xs-6 col-sm-3">
+												<div class="funkyradio-success">
+													<input type="checkbox" name="checkbox" id="checkbox5" /> <label
+														for="checkbox5">Nasal Airway</label>
+												</div>
+											</div>
+											<div class="col-xs-6 col-sm-3">
+												<div class="funkyradio-success">
+													<input type="checkbox" name="checkbox" id="checkbox6" /> <label
+														for="checkbox6">Oral Airway</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingTwo">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse"
+										data-parent="#accordion" href="#collapseTwo"
+										aria-expanded="false" aria-controls="collapseTwo"> C-Spine
+										Control </a>
+								</h4>
+							</div>
+							<div id="collapseTwo" class="panel-collapse collapse"
+								role="tabpanel" aria-labelledby="headingTwo">
+								<div class="panel-body">
+									<div class="container">
+										<div class="row">
+											<div
+												class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-3">
+												<div class="panel panel-default">
+
+													<!-- List group -->
+													<ul class="list-group">
+														<li class="list-group-item">Cervical Collar
+															<div class="material-switch pull-right">
+																<input id="ccollar" name="ccollar" type="checkbox" /> <label
+																	for="ccollar" class="label-success"></label>
+															</div>
+														</li>
+														<li class="list-group-item">Backbone
+															<div class="material-switch pull-right">
+																<input id="backbone" name="someSwitchOption001"
+																	type="checkbox" /> <label for="backbone"
+																	class="label-success"></label>
+															</div>
+														</li>
+														<li class="list-group-item">Head Immobilized
+															<div class="material-switch pull-right">
+																<input id="headImmobilized" name="headImmobilized"
+																	type="checkbox" /> <label for="headImmobilized"
+																	class="label-success"></label>
+															</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingThree">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse"
+										data-parent="#accordion" href="#collapseThree"
+										aria-expanded="false" aria-controls="collapseThree">
+										Breathing </a>
+								</h4>
+							</div>
+							<div id="collapseThree" class="panel-collapse collapse"
+								role="tabpanel" aria-labelledby="headingThree">
+								<div class="panel-body">
+									<div class="container" style="width: inherit;">
+										<div class="row">
+											<div class="well well-sm text-center">
+
+												<div class="btn-group" data-toggle="buttons">
+													<label class="btn btn-default active">Normal <input
+														type="radio" name="normal" id="normal" autocomplete="off"
+														checked> <span class="glyphicon glyphicon-ok"></span>
+													</label> <label class="btn btn-default">Assisted <input
+														type="radio" name="assisted" id="assisted"
+														autocomplete="off"> <span
+														class="glyphicon glyphicon-ok"></span>
+													</label> <label class="btn btn-default">Shallow <input
+														type="radio" name="shallow" id="shallow"
+														autocomplete="off"> <span
+														class="glyphicon glyphicon-ok"></span>
+													</label> <label class="btn btn-default">Labored <input
+														type="radio" name="labored" id="labored"
+														autocomplete="off"> <span
+														class="glyphicon glyphicon-ok"></span>
+													</label> <label class="btn btn-default">Spontaneous <input
+														type="radio" name="spontaneous" id="spontaneous"
+														autocomplete="off"> <span
+														class="glyphicon glyphicon-ok"></span>
+													</label> <label class="btn btn-default">Symmetrical <input
+														type="radio" name="symmetrical" id="symmetrical"
+														autocomplete="off"> <span
+														class="glyphicon glyphicon-ok"></span>
+													</label> <label class="btn btn-default">Asymmetrical <input
+														type="radio" name="asymmetrical" id="asymmetrical"
+														autocomplete="off"> <span
+														class="glyphicon glyphicon-ok"></span>
+													</label> <label class="btn btn-default">Flail <input
+														type="radio" name="flail" id="flail" autocomplete="off">
+														<span class="glyphicon glyphicon-ok"></span>
+													</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+
+				<div id="medications" style="display: none;">
+					<h1 class="page-header">Medications</h1>
+
+					<div class="table-responsive">
+						<div class="container">
+							<div class="row clearfix">
+								<div class="col-md-11 column">
+									<table class="table table-bordered table-hover" id="tab_logic">
+										<thead>
+											<tr>
+												<th class="text-center">#</th>
+												<th class="text-center">Name and Dosage</th>
+												<th class="text-center">Time</th>
+												<th class="text-center">Route</th>
+												<th class="text-center">Site</th>
+												<th class="text-center">MD</th>
+												<th class="text-center">RN Initials</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr id='addr0'>
+												<td>1</td>
+												<td><input type="text" name='dosageName0'
+													placeholder='Name and Dosage' class="form-control" /></td>
+												<td><input type="text" name='time0' placeholder='Time'
+													class="form-control" /></td>
+												<td><input type="text" name='route0'
+													placeholder='Route' class="form-control" /></td>
+												<td><input type="text" name='site0' placeholder='Site'
+													class="form-control" /></td>
+												<td><input type="text" name='md0' placeholder='MD'
+													class="form-control" /></td>
+												<td><input type="text" name='rnintials0'
+													placeholder='RN Initials' class="form-control" /></td>
+											</tr>
+											<tr id='addr1'></tr>
+										</tbody>
+									</table>
+									<a id="add_row" class="btn btn-default pull-left">Add Row</a> <a
+										id='delete_row' class="pull-right btn btn-default">Delete
+										Row</a>
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+					<!--/row-->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--/.container-->
+
+	<footer>
+		<!-- 		<p class="pull-right">©2014 Company</p> -->
+	</footer>
+
+	<!-- script references -->
+	<script
+		src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<script src="scripts/bootstrap.min.js"></script>
+	<script src="scripts/scripts.js"></script>
+	<script src="scripts/image-picker.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+	<script
+		src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+</body>
+</html>
