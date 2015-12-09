@@ -1,50 +1,55 @@
 <!doctype html>
 <html>
 <head>
-    <link href="css/style.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 
-    <!-- HTML5 shim IE8 support for HTML5 elements -->
-    <!--[if lt IE 9]>
+<!-- HTML5 shim IE8 support for HTML5 elements -->
+<!--[if lt IE 9]>
     <script src="js/html5shiv.min.js"></script>
     <![endif]-->
 
 </head>
 <body>
-<!-- Bootstrap top navbar -->
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
+	<!-- Bootstrap top navbar -->
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
 
-        <div class="navbar-header">
+			<div class="navbar-header">
 
-            <!-- emr toggle button -->
-            <button class="btn btn-default navbar-btn emr-toggle" type="button"><i class="fa fa-bars"></i></button>
+				<!-- emr toggle button -->
+				<button class="btn btn-default navbar-btn emr-toggle" type="button">
+					<i class="fa fa-bars"></i>
+				</button>
 
-            <a class="navbar-brand" href=""><i class="fa fa-hospital-o  fa-2x"></i></a>
+				<a class="navbar-brand" href=""><i
+					class="fa fa-hospital-o  fa-2x"></i></a>
 
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse1"
-                    aria-expanded="true">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#collapse1" aria-expanded="true">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
 
-        </div>
+			</div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- This dropdown is for normal links -->
-        <div class="collapse navbar-collapse navbar-right" id="collapse1" aria-expanded="true">
-            <ul class="nav navbar-nav">
-                <li><a href="home.html"><i class="fa fa-home  fa-lg"></i> Home</a></li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<!-- This dropdown is for normal links -->
+			<div class="collapse navbar-collapse navbar-right" id="collapse1"
+				aria-expanded="true">
+				<ul class="nav navbar-nav">
+					<li><a href="home.html"><i class="fa fa-home  fa-lg"></i>
+							Home</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
 
-    </div>
-</nav>
-<!-- /Bootstrap top navbar -->
+		</div>
+	</nav>
+	<!-- /Bootstrap top navbar -->
 
 
-<!--
+	<!--
   emr Sidebar
   Options [you can use all of theme classnames]:
     .emr-hide-to-small   - no hide menu, just set it small with big icons
@@ -58,869 +63,847 @@
     .emr-push     - push content to right
     .emr-shrink   - shrink content width
 -->
-<div class="emrbar emr-light  emr-hide-to-small emr-shrink emr-gestures">
-    <div class="nano">
-        <div class="nano-content">
+	<div
+		class="emrbar emr-light  emr-hide-to-small emr-shrink emr-gestures">
+		<div class="nano">
+			<div class="nano-content">
 
-            <ul class="tabNavigate">
-                <li class="label">EMR Trauma Sheet</li>
-                <li>
-                    <a href="#primSurvey"><img src="images/primary.png" class="img-thumbnail"></i> Primary Survey </a>
-                </li>
-                <li>
-                    <a href="#secondarySurvey"><img src="images/secondary.png" class="img-thumbnail"></i> Secondary
-                        Survey </a>
-                </li>
-                <li>
-                    <a href="#medications"><img src="images/medicine.png" class="img-thumbnail"></i> Medications </a>
-                </li>
-            </ul>
+				<ul class="tabNavigate">
+					<li class="label">EMR Trauma Sheet</li>
+					<li><a href="#primSurvey"><img src="images/primary.png"
+							class="img-thumbnail"></img> Primary Survey </a></li>
+					<li><a href="#secondarySurvey"><img
+							src="images/secondary.png" class="img-thumbnail"></img> Secondary
+							Survey </a></li>
+					<li><a href="#medications"><img src="images/medicine.png"
+							class="img-thumbnail"></img> Medications </a></li>
+					<li><a href="#" data-toggle="modal" data-target="#toa"><img src="images/toa.png"
+							class="img-thumbnail"></img> Arrival Times </a></li>
+				</ul>
 
-        </div>
-    </div>
-</div>
-<!-- /emr Sidebar -->
+			</div>
+		</div>
+	</div>
+	<!-- /emr Sidebar -->
 
 
-<!-- Place your content here
+	<!-- Place your content here
      NOTE: Must be after emrbar:
        <div class="emrbar">...</div>
        <div class="content-wrap">...</div>
 -->
-<div class="content-wrap">
-    <div class="container-fluid">
-        <div id="patientDetails">
-            <br><br><br>
+	<div class="content-wrap">
+		<div class="container-fluid">
+			<div id="patientDetails">
+				<br> <br> <br>
 
-            <div class="row">
+				<div class="row">
 
-                <div class="col-xs-4">
-                    Name: <label id="displayName"></label>
-                </div>
-                <div class="col-xs-4">
-                    Date of Birth: <label id="displayDob">11/15/1990</label>
-                </div>
-                <div class="col-xs-4">
-                    Gender: <label id="displayGender"> Male</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-4">
-                    Level: <label id="displayLevel">Level 1</label>
-                </div>
-                <div class="col-xs-4">
-                    Weight: <label id="displayWeight">85kg</label>
-                </div>
-                <div class="col-xs-4">
-                    Tetanus Status: <label> </label>
-                </div>
-            </div>
-            <hr>
-        </div>
-        <div id="primSurvey">
-            <h1 class="page-header">Primary Survey</h1>
+					<div class="col-xs-4">
+						Name: <label id="displayName"></label>
+					</div>
+					<div class="col-xs-4">
+						Date of Birth: <label id="displayDob">11/15/1990</label>
+					</div>
+					<div class="col-xs-4">
+						Gender: <label id="displayGender"> Male</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4">
+						Level: <label id="displayLevel">Level 1</label>
+					</div>
+					<div class="col-xs-4">
+						Weight: <label id="displayWeight">85kg</label>
+					</div>
+					<div class="col-xs-4">
+						Tetanus Status: <label> </label>
+					</div>
+				</div>
+				<hr>
+			</div>
+			<div id="primSurvey">
+				<h1 class="page-header">Primary Survey</h1>
 
-            <div class="panel-group" id="accordion" role="tablist"
-                 aria-multiselectable="true">
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingOne">
-                        <h4 class="panel-title">
-                            <a role="button" data-toggle="collapse" data-parent="#accordion"
-                               href="#collapseOne" aria-expanded="true"
-                               aria-controls="collapseOne"> Airway </a>
-                        </h4>
-                    </div>
-                    <div id="collapseOne" class="panel-collapse collapse in"
-                         role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body">
-                            <div class="container">
-                                <div class="funkyradio">
-                                    <div class="row">
-                                        <div class="col-xs-6 col-sm-3">
-                                            <div class="funkyradio-success ">
-                                                <input type="checkbox" name="checkbox" id="checkbox1"/> <label
-                                                    for="checkbox1">Patient</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-3">
-                                            <div class="funkyradio-success">
-                                                <input type="checkbox" name="checkbox" id="checkbox2"/> <label
-                                                    for="checkbox2">Stridor</label>
-                                            </div>
-                                        </div>
+				<div class="panel-group" id="accordion" role="tablist"
+					aria-multiselectable="true">
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingOne">
+							<h4 class="panel-title">
+								<a role="button" data-toggle="collapse" data-parent="#accordion"
+									href="#collapseOne" aria-expanded="true"
+									aria-controls="collapseOne"> Airway </a>
+							</h4>
+						</div>
+						<div id="collapseOne" class="panel-collapse collapse in"
+							role="tabpanel" aria-labelledby="headingOne">
+							<div class="panel-body">
+								<div class="container">
+									<div class="funkyradio">
+										<div class="row">
+											<div class="col-xs-6 col-sm-3">
+												<div class="funkyradio-success ">
+													<input type="checkbox" name="checkbox" id="checkbox1" /> <label
+														for="checkbox1">Patient</label>
+												</div>
+											</div>
+											<div class="col-xs-6 col-sm-3">
+												<div class="funkyradio-success">
+													<input type="checkbox" name="checkbox" id="checkbox2" /> <label
+														for="checkbox2">Stridor</label>
+												</div>
+											</div>
 
-                                        <div class="col-xs-6 col-sm-3">
-                                            <div class="funkyradio-success">
-                                                <input type="checkbox" name="checkbox" id="checkbox3"/> <label
-                                                    for="checkbox3">NT Tube</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-xs-6 col-sm-3">
-                                            <div class="funkyradio-success">
-                                                <input type="checkbox" name="checkbox" id="checkbox4"/> <label
-                                                    for="checkbox4">ET Tube</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-3">
-                                            <div class="funkyradio-success">
-                                                <input type="checkbox" name="checkbox" id="checkbox5"/> <label
-                                                    for="checkbox5">Nasal Airway</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-xs-6 col-sm-3">
-                                            <div class="funkyradio-success">
-                                                <input type="checkbox" name="checkbox" id="checkbox6"/> <label
-                                                    for="checkbox6">Oral Airway</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingTwo">
-                        <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse"
-                               data-parent="#accordion" href="#collapseTwo"
-                               aria-expanded="false" aria-controls="collapseTwo"> C-Spine
-                                Control </a>
-                        </h4>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse"
-                         role="tabpanel" aria-labelledby="headingTwo">
-                        <div class="panel-body">
-                            <div class="container">
-                                <div class="row">
-                                    <div
-                                            class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-3">
-                                        <div class="panel panel-default">
+											<div class="col-xs-6 col-sm-3">
+												<div class="funkyradio-success">
+													<input type="checkbox" name="checkbox" id="checkbox3" /> <label
+														for="checkbox3">NT Tube</label>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-xs-6 col-sm-3">
+												<div class="funkyradio-success">
+													<input type="checkbox" name="checkbox" id="checkbox4" /> <label
+														for="checkbox4">ET Tube</label>
+												</div>
+											</div>
+											<div class="col-xs-6 col-sm-3">
+												<div class="funkyradio-success">
+													<input type="checkbox" name="checkbox" id="checkbox5" /> <label
+														for="checkbox5">Nasal Airway</label>
+												</div>
+											</div>
+											<div class="col-xs-6 col-sm-3">
+												<div class="funkyradio-success">
+													<input type="checkbox" name="checkbox" id="checkbox6" /> <label
+														for="checkbox6">Oral Airway</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingTwo">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseTwo"
+									aria-expanded="false" aria-controls="collapseTwo"> C-Spine
+									Control </a>
+							</h4>
+						</div>
+						<div id="collapseTwo" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingTwo">
+							<div class="panel-body">
+								<div class="container">
+									<div class="row">
+										<div
+											class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-3">
+											<div class="panel panel-default">
 
-                                            <!-- List group -->
-                                            <ul class="list-group">
-                                                <li class="list-group-item">Cervical Collar
-                                                    <div class="material-switch pull-right">
-                                                        <input id="ccollar" name="ccollar" type="checkbox"/> <label
-                                                            for="ccollar" class="label-success"></label>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">Backbone
-                                                    <div class="material-switch pull-right">
-                                                        <input id="backbone" name="someSwitchOption001"
-                                                               type="checkbox"/> <label for="backbone"
-                                                                                        class="label-success"></label>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">Head Immobilized
-                                                    <div class="material-switch pull-right">
-                                                        <input id="headImmobilized" name="headImmobilized"
-                                                               type="checkbox"/> <label for="headImmobilized"
-                                                                                        class="label-success"></label>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingThree">
-                        <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse"
-                               data-parent="#accordion" href="#collapseThree"
-                               aria-expanded="false" aria-controls="collapseThree">
-                                Breathing </a>
-                        </h4>
-                    </div>
-                    <div id="collapseThree" class="panel-collapse collapse"
-                         role="tabpanel" aria-labelledby="headingThree">
-                        <div class="panel-body">
-                            <div class="container" style="width: inherit;">
-                                <div class="row">
-                                    <div class="well well-sm text-center">
+												<!-- List group -->
+												<ul class="list-group">
+													<li class="list-group-item">Cervical Collar
+														<div class="material-switch pull-right">
+															<input id="ccollar" name="ccollar" type="checkbox" /> <label
+																for="ccollar" class="label-success"></label>
+														</div>
+													</li>
+													<li class="list-group-item">Backbone
+														<div class="material-switch pull-right">
+															<input id="backbone" name="someSwitchOption001"
+																type="checkbox" /> <label for="backbone"
+																class="label-success"></label>
+														</div>
+													</li>
+													<li class="list-group-item">Head Immobilized
+														<div class="material-switch pull-right">
+															<input id="headImmobilized" name="headImmobilized"
+																type="checkbox" /> <label for="headImmobilized"
+																class="label-success"></label>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingThree">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseThree"
+									aria-expanded="false" aria-controls="collapseThree">
+									Breathing </a>
+							</h4>
+						</div>
+						<div id="collapseThree" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingThree">
+							<div class="panel-body">
+								<div class="container" style="width: inherit;">
+									<div class="row">
+										<div class="well well-sm text-center">
 
-                                        <div class="btn-group" data-toggle="buttons">
-                                            <label class="btn btn-default active">Normal <input
-                                                    type="radio" name="normal" id="normal" autocomplete="off"
-                                                    checked> <span class="glyphicon glyphicon-ok"></span>
-                                            </label> <label class="btn btn-default">Assisted <input
-                                                type="radio" name="assisted" id="assisted"
-                                                autocomplete="off"> <span
-                                                class="glyphicon glyphicon-ok"></span>
-                                        </label> <label class="btn btn-default">Shallow <input
-                                                type="radio" name="shallow" id="shallow"
-                                                autocomplete="off"> <span
-                                                class="glyphicon glyphicon-ok"></span>
-                                        </label> <label class="btn btn-default">Labored <input
-                                                type="radio" name="labored" id="labored"
-                                                autocomplete="off"> <span
-                                                class="glyphicon glyphicon-ok"></span>
-                                        </label> <label class="btn btn-default">Spontaneous <input
-                                                type="radio" name="spontaneous" id="spontaneous"
-                                                autocomplete="off"> <span
-                                                class="glyphicon glyphicon-ok"></span>
-                                        </label> <label class="btn btn-default">Symmetrical <input
-                                                type="radio" name="symmetrical" id="symmetrical"
-                                                autocomplete="off"> <span
-                                                class="glyphicon glyphicon-ok"></span>
-                                        </label> <label class="btn btn-default">Asymmetrical <input
-                                                type="radio" name="asymmetrical" id="asymmetrical"
-                                                autocomplete="off"> <span
-                                                class="glyphicon glyphicon-ok"></span>
-                                        </label> <label class="btn btn-default">Flail <input
-                                                type="radio" name="flail" id="flail" autocomplete="off">
-                                            <span class="glyphicon glyphicon-ok"></span>
-                                        </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+											<div class="btn-group" data-toggle="buttons">
+												<label class="btn btn-default active">Normal <input
+													type="radio" name="normal" id="normal" autocomplete="off"
+													checked> <span class="glyphicon glyphicon-ok"></span>
+												</label> <label class="btn btn-default">Assisted <input
+													type="radio" name="assisted" id="assisted"
+													autocomplete="off"> <span
+													class="glyphicon glyphicon-ok"></span>
+												</label> <label class="btn btn-default">Shallow <input
+													type="radio" name="shallow" id="shallow" autocomplete="off">
+													<span class="glyphicon glyphicon-ok"></span>
+												</label> <label class="btn btn-default">Labored <input
+													type="radio" name="labored" id="labored" autocomplete="off">
+													<span class="glyphicon glyphicon-ok"></span>
+												</label> <label class="btn btn-default">Spontaneous <input
+													type="radio" name="spontaneous" id="spontaneous"
+													autocomplete="off"> <span
+													class="glyphicon glyphicon-ok"></span>
+												</label> <label class="btn btn-default">Symmetrical <input
+													type="radio" name="symmetrical" id="symmetrical"
+													autocomplete="off"> <span
+													class="glyphicon glyphicon-ok"></span>
+												</label> <label class="btn btn-default">Asymmetrical <input
+													type="radio" name="asymmetrical" id="asymmetrical"
+													autocomplete="off"> <span
+													class="glyphicon glyphicon-ok"></span>
+												</label> <label class="btn btn-default">Flail <input
+													type="radio" name="flail" id="flail" autocomplete="off">
+													<span class="glyphicon glyphicon-ok"></span>
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-        <div id="secondarySurvey" style="display: none">
-            <h1 class="page-header">Secondary Survey</h1>
+			<div id="secondarySurvey" style="display: none">
+				<h1 class="page-header">Secondary Survey</h1>
 
-            <div class="panel-group" id="accordionSecondary" role="tablist"
-                 aria-multiselectable="true">
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingOneSecondary">
-                        <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse"
-                               data-parent="#accordion" href="#collapseOneNeuro"
-                               aria-expanded="false" aria-controls="collapseOne">
-                                Neuro </a>
-                        </h4>
-                    </div>
-                    <div id="collapseOneNeuro" class="panel-collapse collapse"
-                         role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body">
-                            <div class="container" style="width: inherit;">
-                                <div class="row">
-                                    <div class="well well-sm">
-                                        <h5 class="page-header">Speech</h5>
+				<div class="panel-group" id="accordionSecondary" role="tablist"
+					aria-multiselectable="true">
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingOneSecondary">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseOneNeuro"
+									aria-expanded="false" aria-controls="collapseOne"> Neuro </a>
+							</h4>
+						</div>
+						<div id="collapseOneNeuro" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingOne">
+							<div class="panel-body">
+								<div class="container" style="width: inherit;">
+									<div class="row">
+										<div class="well well-sm">
+											<h5 class="page-header">Speech</h5>
 
-                                        <div class="text-center">
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-default active">Clear <input
-                                                        type="radio" name="speechClear" id="speechClear"
-                                                        autocomplete="off"
-                                                        checked> <span class="glyphicon glyphicon-ok"></span>
-                                                </label> <label class="btn btn-default">Garbled <input
-                                                    type="radio" name="speechGarbled" id="speechGarbled"
-                                                    autocomplete="off"> <span
-                                                    class="glyphicon glyphicon-ok"></span>
-                                            </label> <label class="btn btn-default">Absent <input
-                                                    type="radio" name="speechAbsent" id="speechAbsent"
-                                                    autocomplete="off"> <span
-                                                    class="glyphicon glyphicon-ok"></span>
-                                            </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="container" style="width: inherit;">
-                                <div class="row">
-                                    <div class="well well-sm">
-                                        <h5 class="page-header">Pupils</h5>
-                                        Size:
-                                        <div class="text-center">
-
-                                        </div>
-                                        Reactive:
-                                        <div class="text-center">
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+											<div class="text-center">
+												<div class="btn-group" data-toggle="buttons">
+													<label class="btn btn-default active">Clear <input
+														type="radio" name="speechClear" id="speechClear"
+														autocomplete="off" checked> <span
+														class="glyphicon glyphicon-ok"></span>
+													</label> <label class="btn btn-default">Garbled <input
+														type="radio" name="speechGarbled" id="speechGarbled"
+														autocomplete="off"> <span
+														class="glyphicon glyphicon-ok"></span>
+													</label> <label class="btn btn-default">Absent <input
+														type="radio" name="speechAbsent" id="speechAbsent"
+														autocomplete="off"> <span
+														class="glyphicon glyphicon-ok"></span>
+													</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="container" style="width: inherit;">
+									<div class="row">
+										<div class="well well-sm">
+											<h5 class="page-header">Pupils</h5>
+											Size:
+											<div class="text-center"></div>
+											Reactive:
+											<div class="text-center"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
 
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingTwoSecondary">
-                        <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse"
-                               data-parent="#accordion" href="#collapseTwoHead"
-                               aria-expanded="false" aria-controls="collapseTwo">
-                                Head </a>
-                        </h4>
-                    </div>
-                    <div id="collapseTwoHead" class="panel-collapse collapse"
-                         role="tabpanel" aria-labelledby="headingTwo">
-                        <div class="panel-body">
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingTwoSecondary">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseTwoHead"
+									aria-expanded="false" aria-controls="collapseTwo"> Head </a>
+							</h4>
+						</div>
+						<div id="collapseTwoHead" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingTwo">
+							<div class="panel-body"></div>
+						</div>
+					</div>
 
-                        </div>
-                    </div>
-                </div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingThreeSecondary">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseThreeRespiratory"
+									aria-expanded="false" aria-controls="collapseThree">
+									Respiratory </a>
+							</h4>
+						</div>
+						<div id="collapseThreeRespiratory" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingThree">
+							<div class="panel-body">
+								<div class="container" style="width: inherit;">
+									<div class="row">
+										<div class="well well-sm">
+											<form class="form-horizontal">
+												<div class="form-group">
+													<label class="col-md-4 control-label" for="fio2">FiO2</label>
 
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingThreeSecondary">
-                        <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse"
-                               data-parent="#accordion" href="#collapseThreeRespiratory"
-                               aria-expanded="false" aria-controls="collapseThree">
-                                Respiratory </a>
-                        </h4>
-                    </div>
-                    <div id="collapseThreeRespiratory" class="panel-collapse collapse"
-                         role="tabpanel" aria-labelledby="headingThree">
-                        <div class="panel-body">
-                            <div class="container" style="width: inherit;">
-                                <div class="row">
-                                    <div class="well well-sm">
-                                        <form class="form-horizontal">
-                                            <div class="form-group">
-                                                <label class="col-md-4 control-label" for="fio2">FiO2</label>
+													<div class="col-md-4">
+														<div class="input-group">
+															<input id="fio2" name="fio2" class="form-control"
+																placeholder="" type="text"> <span
+																class="input-group-addon">%</span>
+														</div>
+													</div>
+												</div>
+											</form>
+											<div class="text-center">
+												<div class="btn-group" data-toggle="buttons">
+													<label class="btn btn-default active">Ambu<input
+														type="radio" name="respiratoryAmbu" id="respiratoryAmbu"
+														autocomplete="off">
+													</label> <label class="btn btn-default">Vent<input
+														type="radio" name="respiratoryVent" id="respiratoryVent"
+														autocomplete="off">
+													</label>
+												</div>
+											</div>
+										</div>
+										<div class="well well-sm">
+											<h5 class="page-header">Vent Settings</h5>
 
-                                                <div class="col-md-4">
-                                                    <div class="input-group">
-                                                        <input id="fio2" name="fio2" class="form-control" placeholder=""
-                                                               type="text"> <span class="input-group-addon">%</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <div class="text-center">
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-default active">Ambu<input
-                                                        type="radio" name="respiratoryAmbu" id="respiratoryAmbu"
-                                                        autocomplete="off">
-                                                </label> <label class="btn btn-default">Vent<input
-                                                    type="radio" name="respiratoryVent" id="respiratoryVent"
-                                                    autocomplete="off">
-                                            </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="well well-sm">
-                                        <h5 class="page-header">Vent Settings</h5>
+											<form class="form-horizontal">
+												<div class="form-group">
+													<label class="col-md-1 col-md-offset-13 control-label"
+														for="ventSettingFio2">FiO2</label>
 
-                                        <form class="form-horizontal">
-                                            <div class="form-group">
-                                                <label class="col-md-1 col-md-offset-13 control-label"
-                                                       for="ventSettingFio2">FiO2</label>
+													<div class="col-md-2">
+														<input id="ventSettingFio2" name="ventSettingFio2"
+															type="text" placeholder="" class="form-control input-md">
+													</div>
+													<label class="col-md-1 col-md-offset-1 control-label"
+														for="ventSettingRate">Rate</label>
 
-                                                <div class="col-md-2">
-                                                    <input id="ventSettingFio2" name="ventSettingFio2" type="text"
-                                                           placeholder=""
-                                                           class="form-control input-md">
-                                                </div>
-                                                <label class="col-md-1 col-md-offset-1 control-label"
-                                                       for="ventSettingRate">Rate</label>
+													<div class="col-md-2">
+														<input id="ventSettingRate" name="ventSettingRate"
+															type="text" placeholder="" class="form-control input-md">
+													</div>
+													<label class="col-md-1 col-md-offset-1 control-label"
+														for="ventSettingPeep">PEEP</label>
 
-                                                <div class="col-md-2">
-                                                    <input id="ventSettingRate" name="ventSettingRate" type="text"
-                                                           placeholder=""
-                                                           class="form-control input-md">
-                                                </div>
-                                                <label class="col-md-1 col-md-offset-1 control-label"
-                                                       for="ventSettingPeep">PEEP</label>
+													<div class="col-md-2">
+														<input id="ventSettingPeep" name="ventSettingPeep"
+															type="text" placeholder="" class="form-control input-md">
+													</div>
+												</div>
+												<div class="form-group">
+													<label class="col-md-1 col-md-offset-13 control-label"
+														for="ventSettingPS">PS</label>
 
-                                                <div class="col-md-2">
-                                                    <input id="ventSettingPeep" name="ventSettingPeep" type="text"
-                                                           placeholder=""
-                                                           class="form-control input-md">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-1 col-md-offset-13 control-label"
-                                                       for="ventSettingPS">PS</label>
+													<div class="col-md-2">
+														<input id="ventSettingPS" name="ventSettingPS" type="text"
+															placeholder="" class="form-control input-md">
+													</div>
+													<label class="col-md-1 col-md-offset-1 control-label"
+														for="ventSettingTV">TV</label>
 
-                                                <div class="col-md-2">
-                                                    <input id="ventSettingPS" name="ventSettingPS" type="text"
-                                                           placeholder=""
-                                                           class="form-control input-md">
-                                                </div>
-                                                <label class="col-md-1 col-md-offset-1 control-label"
-                                                       for="ventSettingTV">TV</label>
+													<div class="col-md-2">
+														<input id="ventSettingTV" name="ventSettingTV" type="text"
+															placeholder="" class="form-control input-md">
+													</div>
+													<label class="col-md-1 col-md-offset-1 control-label"
+														for="ventSettingPIP">PIP</label>
 
-                                                <div class="col-md-2">
-                                                    <input id="ventSettingTV" name="ventSettingTV" type="text"
-                                                           placeholder=""
-                                                           class="form-control input-md">
-                                                </div>
-                                                <label class="col-md-1 col-md-offset-1 control-label"
-                                                       for="ventSettingPIP">PIP</label>
+													<div class="col-md-2">
+														<input id="ventSettingPIP" name="ventSettingPIP"
+															type="text" placeholder="" class="form-control input-md">
+													</div>
+												</div>
+											</form>
+										</div>
+										<div class="well well-sm">
+											<h5 class="page-header">Trachea</h5>
 
-                                                <div class="col-md-2">
-                                                    <input id="ventSettingPIP" name="ventSettingPIP" type="text"
-                                                           placeholder=""
-                                                           class="form-control input-md">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="well well-sm">
-                                        <h5 class="page-header">Trachea</h5>
+											<div class="text-center">
+												<div class="btn-group" data-toggle="buttons">
+													<label class="btn btn-default active">Midline<input
+														type="radio" name="tracheaMidline" id="tracheaMidline"
+														autocomplete="off">
+													</label> <label class="btn btn-default">Deviated<input
+														type="radio" name="tracheaDeviated" id="tracheaDeviated"
+														autocomplete="off">
+													</label>
+												</div>
+											</div>
+											<br />
 
-                                        <div class="text-center">
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-default active">Midline<input
-                                                        type="radio" name="tracheaMidline" id="tracheaMidline"
-                                                        autocomplete="off">
-                                                </label> <label class="btn btn-default">Deviated<input
-                                                    type="radio" name="tracheaDeviated" id="tracheaDeviated"
-                                                    autocomplete="off">
-                                            </label>
-                                            </div>
-                                        </div>
-                                        <br/>
+											<div class="text-center">
+												<div class="btn-group" data-toggle="buttons">
+													<label class="btn btn-default active">Right
+														Deviation<input type="radio" name="tracheaDeviatedRight"
+														id="tracheaDeviatedRight" autocomplete="off">
+													</label> <label class="btn btn-default">Left Deviation<input
+														type="radio" name="tracheaDeviatedLeft"
+														id="tracheaDeviatedLeft" autocomplete="off">
+													</label>
+												</div>
+											</div>
+										</div>
+										<div class="well well-sm">
+											<h5 class="page-header">Crepitus</h5>
 
-                                        <div class="text-center">
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-default active">Right Deviation<input
-                                                        type="radio" name="tracheaDeviatedRight"
-                                                        id="tracheaDeviatedRight"
-                                                        autocomplete="off">
-                                                </label> <label class="btn btn-default">Left Deviation<input
-                                                    type="radio" name="tracheaDeviatedLeft" id="tracheaDeviatedLeft"
-                                                    autocomplete="off">
-                                            </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="well well-sm">
-                                        <h5 class="page-header">Crepitus</h5>
+											<div class="text-center">
+												<div class="btn-group" data-toggle="buttons">
+													<label class="btn btn-default active"> <input
+														type="radio" name="crepitusPresent" id="crepitusPresent"
+														autocomplete="off" checked>Present
+													</label> <label class="btn btn-default"> <input
+														type="radio" name="crepitusAbsent" id="crepitusAbsent"
+														autocomplete="off">Absent
+													</label>
+												</div>
+											</div>
+											<br />
 
-                                        <div class="text-center">
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-default active">
-                                                    <input type="radio" name="crepitusPresent" id="crepitusPresent"
-                                                           autocomplete="off"
-                                                           checked>Present
-                                                </label>
-                                                <label class="btn btn-default">
-                                                    <input type="radio" name="crepitusAbsent" id="crepitusAbsent"
-                                                           autocomplete="off">Absent
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <br/>
+											<form class="form-horizontal">
+												<div class="form-group">
+													<label class="col-md-4 control-label"
+														for="crepitusLocation">Location</label>
 
-                                        <form class="form-horizontal">
-                                            <div class="form-group">
-                                                <label class="col-md-4 control-label"
-                                                       for="crepitusLocation">Location</label>
+													<div class="col-md-4">
+														<input id="crepitusLocation" name="crepitusLocation"
+															type="text" placeholder="" class="form-control input-md">
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-                                                <div class="col-md-4">
-                                                    <input id="crepitusLocation" name="crepitusLocation" type="text"
-                                                           placeholder="" class="form-control input-md">
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingFour">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseFourBreathSounds"
+									aria-expanded="false" aria-controls="collapseFour"> Breath
+									Sounds </a>
+							</h4>
+						</div>
+						<div id="collapseFourBreathSounds" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingFour">
+							<div class="panel-body">
+								<div class="container" style="width: inherit;">
+									<div class="row">
+										<div class="well well-sm">
+											<!-- <h5 class="page-header">Right</h5> -->
+											Right:
+											<div class="text-center">
+												<div class="btn-group" data-toggle="buttons">
+													<label class="btn btn-default active"> <input
+														type="radio" name="breathRightClear" id="breathRightClear"
+														autocomplete="off" checked> Clear
+													</label> <label class="btn btn-default"> <input
+														type="radio" name="breathRightWheezing"
+														id="breathRightWheezing" autocomplete="off">
+														Wheeezing
+													</label> <label class="btn btn-default"> <input
+														type="radio" name="breathRightDiminished"
+														id="breathRightDiminished" autocomplete="off">
+														Diminished
+													</label> <label class="btn btn-default"> <input
+														type="radio" name="breathRightRhonci"
+														id="breathRightRhonci" autocomplete="off"> Rales.
+														Rhonci
+													</label> <label class="btn btn-default"> <input
+														type="radio" name="breathRightAbsent"
+														id="breathRightAbsent" autocomplete="off"> Absent
+													</label>
+												</div>
+											</div>
+											Left:
+											<div class="text-center">
+												<div class="btn-group" data-toggle="buttons">
+													<label class="btn btn-default active"> <input
+														type="radio" name="breathLeftClear" id="breathLeftClear"
+														autocomplete="off" checked> Clear
+													</label> <label class="btn btn-default"> <input
+														type="radio" name="breathLeftWheezing"
+														id="breathLeftWheezing" autocomplete="off">
+														Wheeezing
+													</label> <label class="btn btn-default"> <input
+														type="radio" name="breathLeftDiminished"
+														id="breathLeftDiminished" autocomplete="off">
+														Diminished
+													</label> <label class="btn btn-default"> <input
+														type="radio" name="breathLeftRhonci" id="breathLeftRhonci"
+														autocomplete="off"> Rales. Rhonci
+													</label> <label class="btn btn-default"> <input
+														type="radio" name="breathLeftAbsent" id="breathLeftAbsent"
+														autocomplete="off"> Absent
+													</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="container" style="width: inherit;">
+									<div class="row">
+										<div class="well well-sm">
+											<!-- <div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-3"> -->
+											<div class="panel panel-default">
+												<!-- List group -->
+												<ul class="list-group">
+													<li class="list-group-item">Singed Nasal Hair
+														<div class="material-switch pull-right">
+															<input id="singedNasalHair" name="singedNasalHair"
+																type="checkbox" /> <label for="ccollar"
+																class="label-success"></label>
+														</div>
+													</li>
+													<li class="list-group-item">Carbon in Sputum
+														<div class="material-switch pull-right">
+															<input id="carbonInSputum" name="carbonInSputum"
+																type="checkbox" /> <label for="backbone"
+																class="label-success"></label>
+														</div>
+													</li>
+												</ul>
+											</div>
+											<!-- </div> -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingFour">
-                        <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse"
-                               data-parent="#accordion" href="#collapseFourBreathSounds"
-                               aria-expanded="false" aria-controls="collapseFour">
-                                Breath Sounds </a>
-                        </h4>
-                    </div>
-                    <div id="collapseFourBreathSounds" class="panel-collapse collapse"
-                         role="tabpanel" aria-labelledby="headingFour">
-                        <div class="panel-body">
-                            <div class="container" style="width: inherit;">
-                                <div class="row">
-                                    <div class="well well-sm">
-                                        <!-- <h5 class="page-header">Right</h5> -->
-                                        Right:
-                                        <div class="text-center">
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-default active">
-                                                    <input type="radio" name="breathRightClear" id="breathRightClear"
-                                                           autocomplete="off"
-                                                           checked> Clear
-                                                </label>
-                                                <label class="btn btn-default">
-                                                    <input type="radio" name="breathRightWheezing"
-                                                           id="breathRightWheezing"
-                                                           autocomplete="off"> Wheeezing
-                                                </label>
-                                                <label class="btn btn-default">
-                                                    <input type="radio" name="breathRightDiminished"
-                                                           id="breathRightDiminished"
-                                                           autocomplete="off"> Diminished
-                                                </label>
-                                                <label class="btn btn-default">
-                                                    <input type="radio" name="breathRightRhonci" id="breathRightRhonci"
-                                                           autocomplete="off"> Rales. Rhonci
-                                                </label>
-                                                <label class="btn btn-default">
-                                                    <input type="radio" name="breathRightAbsent" id="breathRightAbsent"
-                                                           autocomplete="off"> Absent
-                                                </label>
-                                            </div>
-                                        </div>
-                                        Left:
-                                        <div class="text-center">
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-default active">
-                                                    <input type="radio" name="breathLeftClear" id="breathLeftClear"
-                                                           autocomplete="off"
-                                                           checked> Clear
-                                                </label>
-                                                <label class="btn btn-default">
-                                                    <input type="radio" name="breathLeftWheezing"
-                                                           id="breathLeftWheezing"
-                                                           autocomplete="off"> Wheeezing
-                                                </label>
-                                                <label class="btn btn-default">
-                                                    <input type="radio" name="breathLeftDiminished"
-                                                           id="breathLeftDiminished"
-                                                           autocomplete="off"> Diminished
-                                                </label>
-                                                <label class="btn btn-default">
-                                                    <input type="radio" name="breathLeftRhonci" id="breathLeftRhonci"
-                                                           autocomplete="off"> Rales. Rhonci
-                                                </label>
-                                                <label class="btn btn-default">
-                                                    <input type="radio" name="breathLeftAbsent" id="breathLeftAbsent"
-                                                           autocomplete="off"> Absent
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="container" style="width: inherit;">
-                                <div class="row">
-                                    <div class="well well-sm">
-                                        <!-- <div class="col-xs-12 col-sm-6 col-md-4 col-sm-offset-3 col-md-offset-3"> -->
-                                        <div class="panel panel-default">
-                                            <!-- List group -->
-                                            <ul class="list-group">
-                                                <li class="list-group-item">Singed Nasal Hair
-                                                    <div class="material-switch pull-right">
-                                                        <input id="singedNasalHair" name="singedNasalHair"
-                                                               type="checkbox"/>
-                                                        <label for="ccollar" class="label-success"></label>
-                                                    </div>
-                                                </li>
-                                                <li class="list-group-item">Carbon in Sputum
-                                                    <div class="material-switch pull-right">
-                                                        <input id="carbonInSputum" name="carbonInSputum"
-                                                               type="checkbox"/>
-                                                        <label for="backbone" class="label-success"></label>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- </div> -->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingFive">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseFiveAbdomen"
+									aria-expanded="false" aria-controls="collapseFive"> Abdomen
+								</a>
+							</h4>
+						</div>
+						<div id="collapseFiveAbdomen" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingFive">
+							<div class="panel-body">
+								<div class="container" style="width: inherit;">
+									<div class="row">
+										<div class="well well-sm">
+											<div class="text-center">
+												<div class="btn-group" data-toggle="buttons">
+													<label class="btn btn-default active"> <input
+														type="radio" name="abdomenSoft" id="abdomenSoft"
+														autocomplete="off" checked> Soft <span
+														class="glyphicon glyphicon-ok"></span>
+													</label> <label class="btn btn-default"> <input
+														type="radio" name="abdomenTender" id="abdomenTender"
+														autocomplete="off"> Tender <span
+														class="glyphicon glyphicon-ok"></span>
+													</label> <label class="btn btn-default"> <input
+														type="radio" name="abdomenRigid" id="abdomenRigid"
+														autocomplete="off"> Rigid <span
+														class="glyphicon glyphicon-ok"></span>
+													</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="container" style="width: inherit;">
+									<div class="row">
+										<div class="well well-sm">
+											<h5 class="page-header">Wounds</h5>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingFive">
-                        <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse"
-                               data-parent="#accordion" href="#collapseFiveAbdomen"
-                               aria-expanded="false" aria-controls="collapseFive">
-                                Abdomen </a>
-                        </h4>
-                    </div>
-                    <div id="collapseFiveAbdomen" class="panel-collapse collapse"
-                         role="tabpanel" aria-labelledby="headingFive">
-                        <div class="panel-body">
-                            <div class="container" style="width: inherit;">
-                                <div class="row">
-                                    <div class="well well-sm">
-                                        <div class="text-center">
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-default active">
-                                                    <input type="radio" name="abdomenSoft" id="abdomenSoft"
-                                                           autocomplete="off"
-                                                           checked> Soft <span class="glyphicon glyphicon-ok"></span>
-                                                </label>
-                                                <label class="btn btn-default">
-                                                    <input type="radio" name="abdomenTender" id="abdomenTender"
-                                                           autocomplete="off"> Tender <span
-                                                        class="glyphicon glyphicon-ok"></span>
-                                                </label>
-                                                <label class="btn btn-default">
-                                                    <input type="radio" name="abdomenRigid" id="abdomenRigid"
-                                                           autocomplete="off"> Rigid <span
-                                                        class="glyphicon glyphicon-ok"></span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="container" style="width: inherit;">
-                                <div class="row">
-                                    <div class="well well-sm">
-                                        <h5 class="page-header">Wounds</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingSix">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseSixBowelSounds"
+									aria-expanded="false" aria-controls="collapseSix"> Bowel
+									Sounds </a>
+							</h4>
+						</div>
+						<div id="collapseSixBowelSounds" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingSix">
+							<div class="panel-body">
+								<div class="container" style="width: inherit;">
+									<div class="row">
+										<div class="well well-sm">
+											<div class="text-center">
+												<div class="btn-group" data-toggle="buttons">
+													<label class="btn btn-default active"> <input
+														type="radio" name="bowelSoundsPositive"
+														id="bowelSoundsPositive" autocomplete="off" checked>
+														Positive
+													</label> <label class="btn btn-default"> <input
+														type="radio" name="bowelSoundsNegative"
+														id="bowelSoundsNegative" autocomplete="off">
+														Negative
+													</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingSix">
-                        <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse"
-                               data-parent="#accordion" href="#collapseSixBowelSounds"
-                               aria-expanded="false" aria-controls="collapseSix">
-                                Bowel Sounds </a>
-                        </h4>
-                    </div>
-                    <div id="collapseSixBowelSounds" class="panel-collapse collapse"
-                         role="tabpanel" aria-labelledby="headingSix">
-                        <div class="panel-body">
-                            <div class="container" style="width: inherit;">
-                                <div class="row">
-                                    <div class="well well-sm">
-                                        <div class="text-center">
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-default active">
-                                                    <input type="radio" name="bowelSoundsPositive"
-                                                           id="bowelSoundsPositive"
-                                                           autocomplete="off"
-                                                           checked> Positive
-                                                </label>
-                                                <label class="btn btn-default">
-                                                    <input type="radio" name="bowelSoundsNegative"
-                                                           id="bowelSoundsNegative"
-                                                           autocomplete="off"> Negative
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingSeven">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseSevenPelvis"
+									aria-expanded="false" aria-controls="collapseSeven"> Pelvis
+								</a>
+							</h4>
+						</div>
+						<div id="collapseSevenPelvis" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingSeven">
+							<div class="panel-body"></div>
+						</div>
+					</div>
 
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingSeven">
-                        <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse"
-                               data-parent="#accordion" href="#collapseSevenPelvis"
-                               aria-expanded="false" aria-controls="collapseSeven">
-                                Pelvis </a>
-                        </h4>
-                    </div>
-                    <div id="collapseSevenPelvis" class="panel-collapse collapse"
-                         role="tabpanel" aria-labelledby="headingSeven">
-                        <div class="panel-body">
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingEight">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseEightGI"
+									aria-expanded="false" aria-controls="collapseEight"> GI </a>
+							</h4>
+						</div>
+						<div id="collapseEightGI" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingEight">
+							<div class="panel-body">
+								<div class="container" style="width: inherit;">
+									<div class="row">
+										<div class="well well-sm">
+											<h5 class="page-header">Rectal Exam</h5>
 
-                        </div>
-                    </div>
-                </div>
+											<div class="text-center">
+												<div class="btn-group" data-toggle="buttons">
+													<label class="btn btn-default active"> <input
+														type="radio" name="rectalExamPositive"
+														id="rectalExamPositive" autocomplete="off" checked>
+														Positive
+													</label> <label class="btn btn-default"> <input
+														type="radio" name="rectalExamNegative"
+														id="rectalExamNegative" autocomplete="off">
+														Negative
+													</label> <label class="btn btn-default"> <input
+														type="radio" name="rectalExamDeferred"
+														id="rectalExamDeferred" autocomplete="off">
+														Deferred
+													</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingEight">
-                        <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse"
-                               data-parent="#accordion" href="#collapseEightGI"
-                               aria-expanded="false" aria-controls="collapseEight">
-                                GI </a>
-                        </h4>
-                    </div>
-                    <div id="collapseEightGI" class="panel-collapse collapse"
-                         role="tabpanel" aria-labelledby="headingEight">
-                        <div class="panel-body">
-                            <div class="container" style="width: inherit;">
-                                <div class="row">
-                                    <div class="well well-sm">
-                                        <h5 class="page-header">Rectal Exam</h5>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingNine">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseNineGU"
+									aria-expanded="false" aria-controls="collapseNine"> GU </a>
+							</h4>
+						</div>
+						<div id="collapseNineGU" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingNine">
+							<div class="panel-body">
+								<div class="container" style="width: inherit;">
+									<div class="row">
+										<div class="well well-sm">
+											<h5 class="page-header">Blood at meatus</h5>
 
-                                        <div class="text-center">
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-default active">
-                                                    <input type="radio" name="rectalExamPositive"
-                                                           id="rectalExamPositive"
-                                                           autocomplete="off"
-                                                           checked> Positive
-                                                </label>
-                                                <label class="btn btn-default">
-                                                    <input type="radio" name="rectalExamNegative"
-                                                           id="rectalExamNegative"
-                                                           autocomplete="off"> Negative
-                                                </label>
-                                                <label class="btn btn-default">
-                                                    <input type="radio" name="rectalExamDeferred"
-                                                           id="rectalExamDeferred"
-                                                           autocomplete="off"> Deferred
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+											<div class="text-center">
+												<div class="btn-group" data-toggle="buttons">
+													<label class="btn btn-default active"> <input
+														type="radio" name="bloosAtMeatusPresent"
+														id="bloosAtMeatusPresent" autocomplete="off" checked>
+														Present
+													</label> <label class="btn btn-default"> <input
+														type="radio" name="bloosAtMeatusAbsent"
+														id="bloosAtMeatusAbsent" autocomplete="off">
+														Absent
+													</label>
+												</div>
+											</div>
+											<h5 class="page-header">U/A dipstick</h5>
 
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingNine">
-                        <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse"
-                               data-parent="#accordion" href="#collapseNineGU"
-                               aria-expanded="false" aria-controls="collapseNine">
-                                GU </a>
-                        </h4>
-                    </div>
-                    <div id="collapseNineGU" class="panel-collapse collapse"
-                         role="tabpanel" aria-labelledby="headingNine">
-                        <div class="panel-body">
-                            <div class="container" style="width: inherit;">
-                                <div class="row">
-                                    <div class="well well-sm">
-                                        <h5 class="page-header">Blood at meatus</h5>
+											<div class="text-center">
+												<div class="btn-group" data-toggle="buttons">
+													<label class="btn btn-default active"> <input
+														type="radio" name="urineDipstickPositive"
+														id="urineDipstickPositive" autocomplete="off" checked>
+														Positive
+													</label> <label class="btn btn-default"> <input
+														type="radio" name="urineDipstickNegative"
+														id="urineDipstickNegative" autocomplete="off">
+														Negative
+													</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-                                        <div class="text-center">
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-default active">
-                                                    <input type="radio" name="bloosAtMeatusPresent"
-                                                           id="bloosAtMeatusPresent" autocomplete="off"
-                                                           checked> Present
-                                                </label>
-                                                <label class="btn btn-default">
-                                                    <input type="radio" name="bloosAtMeatusAbsent"
-                                                           id="bloosAtMeatusAbsent"
-                                                           autocomplete="off"> Absent
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <h5 class="page-header">U/A dipstick</h5>
+					<div class="panel panel-default">
+						<div class="panel-heading" role="tab" id="headingTen">
+							<h4 class="panel-title">
+								<a class="collapsed" role="button" data-toggle="collapse"
+									data-parent="#accordion" href="#collapseTenExtremities"
+									aria-expanded="false" aria-controls="collapseTen">
+									Extremities </a>
+							</h4>
+						</div>
+						<div id="collapseTenExtremities" class="panel-collapse collapse"
+							role="tabpanel" aria-labelledby="headingTen">
+							<div class="panel-body"></div>
+						</div>
+					</div>
 
-                                        <div class="text-center">
-                                            <div class="btn-group" data-toggle="buttons">
-                                                <label class="btn btn-default active">
-                                                    <input type="radio" name="urineDipstickPositive"
-                                                           id="urineDipstickPositive" autocomplete="off"
-                                                           checked> Positive
-                                                </label>
-                                                <label class="btn btn-default">
-                                                    <input type="radio" name="urineDipstickNegative"
-                                                           id="urineDipstickNegative"
-                                                           autocomplete="off"> Negative
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+				</div>
+			</div>
+			<div id="medications" style="display: none">
+				<h1 class="page-header">Medications</h1>
 
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingTen">
-                        <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse"
-                               data-parent="#accordion" href="#collapseTenExtremities"
-                               aria-expanded="false" aria-controls="collapseTen">
-                                Extremities </a>
-                        </h4>
-                    </div>
-                    <div id="collapseTenExtremities" class="panel-collapse collapse"
-                         role="tabpanel" aria-labelledby="headingTen">
-                        <div class="panel-body">
+				<div class="table-responsive">
+					<div class="container">
+						<div class="row clearfix">
+							<div class="col-md-11 column">
+								<table class="table table-bordered table-hover" id="tab_logic">
+									<thead>
+										<tr>
+											<th class="text-center">#</th>
+											<th class="text-center">Name and Dosage</th>
+											<th class="text-center">Time</th>
+											<th class="text-center">Route</th>
+											<th class="text-center">Site</th>
+											<th class="text-center">MD</th>
+											<th class="text-center">RN Initials</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr id='addr0'>
+											<td>1</td>
+											<td><input type="text" name='dosageName0'
+												placeholder='Name and Dosage' class="form-control" /></td>
+											<td><input type="text" name='time0' placeholder='Time'
+												class="form-control" /></td>
+											<td><input type="text" name='route0' placeholder='Route'
+												class="form-control" /></td>
+											<td><input type="text" name='site0' placeholder='Site'
+												class="form-control" /></td>
+											<td><input type="text" name='md0' placeholder='MD'
+												class="form-control" /></td>
+											<td><input type="text" name='rnintials0'
+												placeholder='RN Initials' class="form-control" /></td>
+										</tr>
+										<tr id='addr1'></tr>
+									</tbody>
+								</table>
+								<a id="add_row" class="btn btn-default pull-left">Add Row</a> <a
+									id='delete_row' class="pull-right btn btn-default">Delete
+									Row</a>
+							</div>
 
-                        </div>
-                    </div>
-                </div>
+						</div>
 
-            </div>
-        </div>
-        <div id="medications" style="display: none">
-            <h1 class="page-header">Medications</h1>
+					</div>
+				</div>
+				<!--/row-->
+			</div>
+			<div id="toaContainer">
+				<div class="modal fade" id="toa" role="dialog">
+					<div class="modal-dialog modal-sm">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title">Modal Header</h4>
+							</div>
+							<div class="modal-body">
+								<p>This is a small modal.</p>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- For longer demo page -->
+			<br> <br> <br> <br> <br> <br> <br>
+			<br> <br> <br>
 
-            <div class="table-responsive">
-                <div class="container">
-                    <div class="row clearfix">
-                        <div class="col-md-11 column">
-                            <table class="table table-bordered table-hover" id="tab_logic">
-                                <thead>
-                                <tr>
-                                    <th class="text-center">#</th>
-                                    <th class="text-center">Name and Dosage</th>
-                                    <th class="text-center">Time</th>
-                                    <th class="text-center">Route</th>
-                                    <th class="text-center">Site</th>
-                                    <th class="text-center">MD</th>
-                                    <th class="text-center">RN Initials</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr id='addr0'>
-                                    <td>1</td>
-                                    <td><input type="text" name='dosageName0'
-                                               placeholder='Name and Dosage' class="form-control"/></td>
-                                    <td><input type="text" name='time0' placeholder='Time'
-                                               class="form-control"/></td>
-                                    <td><input type="text" name='route0'
-                                               placeholder='Route' class="form-control"/></td>
-                                    <td><input type="text" name='site0' placeholder='Site'
-                                               class="form-control"/></td>
-                                    <td><input type="text" name='md0' placeholder='MD'
-                                               class="form-control"/></td>
-                                    <td><input type="text" name='rnintials0'
-                                               placeholder='RN Initials' class="form-control"/></td>
-                                </tr>
-                                <tr id='addr1'></tr>
-                                </tbody>
-                            </table>
-                            <a id="add_row" class="btn btn-default pull-left">Add Row</a> <a
-                                id='delete_row' class="pull-right btn btn-default">Delete
-                            Row</a>
-                        </div>
+			<footer class="footer">
+				<p class="text-muted text-center">&copy; 2015</p>
+			</footer>
+		</div>
+	</div>
+	<!-- /Place your content here -->
 
-                    </div>
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/index.js"></script>
 
-                </div>
-            </div>
-            <!--/row-->
-        </div>
-        <!-- For longer demo page -->
-        <br><br><br><br><br><br><br><br><br><br>
-
-        <footer class="footer">
-            <p class="text-muted text-center"> &copy; 2015</p>
-        </footer>
-    </div>
-</div>
-<!-- /Place your content here -->
-
-<script src="js/jquery-1.11.0.min.js"></script>
-<script src="js/script.js"></script>
-<script src="js/index.js"></script>
-
-<style>
-    .social-likes, .social-likes__widget {
-        left: auto;
-        right: 2px;
-    }
-</style>
+<!-- 	<style>
+.social-likes, .social-likes__widget {
+	left: auto;
+	right: 2px;
+}
+</style> -->
 </body>
 </html>
