@@ -56,6 +56,7 @@ $(document)
 					        $("#personalDetails").hide();
 					        $("#primSurvey").hide();
 					        $("#medications").hide();
+					        $("#vitals").hide();
 					        event.preventDefault();
 					        $($anchor.attr('href')).show();
 					        event.preventDefault();

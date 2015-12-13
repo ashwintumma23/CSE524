@@ -70,6 +70,8 @@ $(document)
                 $("#primSurvey").hide();
                 $("#secondarySurvey").hide();
                 $("#medications").hide();
+                $("#vitals").hide();
+                $("#ivfluids").hide();
                 event.preventDefault();
                 $($anchor.attr('href')).show();
                 event.preventDefault();
