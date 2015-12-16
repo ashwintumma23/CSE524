@@ -2,6 +2,8 @@
 <html>
 <head>
 <link href="css/style.css" rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.10.0/vis.min.css" />
 
 <!-- HTML5 shim IE8 support for HTML5 elements -->
 <!--[if lt IE 9]>
@@ -81,8 +83,10 @@
 							class="img-thumbnail"></img> Medications </a></li>
 					<li><a href="#ivfluids"><img src="images/secondary.png"
 							class="img-thumbnail"></img> IV Fluids </a></li>
-					<li><a href="#" data-toggle="modal" data-target="#toa"><img src="images/toa.png"
-							class="img-thumbnail"></img> Arrival Times </a></li>
+					<li><a href="#reviewTimeline"><img src="images/secondary.png"
+							class="img-thumbnail"></img> IV Fluids </a></li>
+					<li><a href="#" data-toggle="modal" data-target="#toa"><img
+							src="images/toa.png" class="img-thumbnail"></img> Arrival Times </a></li>
 				</ul>
 
 			</div>
@@ -356,7 +360,8 @@
 							<h4 class="panel-title">
 								<a class="collapsed" role="button" data-toggle="collapse"
 									data-parent="#accordionSecondary" href="#collapseTwoHead"
-									aria-expanded="false" aria-controls="collapseTwoHead"> Head </a>
+									aria-expanded="false" aria-controls="collapseTwoHead"> Head
+								</a>
 							</h4>
 						</div>
 						<div id="collapseTwoHead" class="panel-collapse collapse"
@@ -369,9 +374,9 @@
 						<div class="panel-heading" role="tab" id="headingThreeSecondary">
 							<h4 class="panel-title">
 								<a class="collapsed" role="button" data-toggle="collapse"
-									data-parent="#accordionSecondary" href="#collapseThreeRespiratory"
-									aria-expanded="false" aria-controls="collapseThree">
-									Respiratory </a>
+									data-parent="#accordionSecondary"
+									href="#collapseThreeRespiratory" aria-expanded="false"
+									aria-controls="collapseThree"> Respiratory </a>
 							</h4>
 						</div>
 						<div id="collapseThreeRespiratory" class="panel-collapse collapse"
@@ -523,9 +528,9 @@
 						<div class="panel-heading" role="tab" id="headingFour">
 							<h4 class="panel-title">
 								<a class="collapsed" role="button" data-toggle="collapse"
-									data-parent="#accordionSecondary" href="#collapseFourBreathSounds"
-									aria-expanded="false" aria-controls="collapseFour"> Breath
-									Sounds </a>
+									data-parent="#accordionSecondary"
+									href="#collapseFourBreathSounds" aria-expanded="false"
+									aria-controls="collapseFour"> Breath Sounds </a>
 							</h4>
 						</div>
 						<div id="collapseFourBreathSounds" class="panel-collapse collapse"
@@ -666,9 +671,9 @@
 						<div class="panel-heading" role="tab" id="headingSix">
 							<h4 class="panel-title">
 								<a class="collapsed" role="button" data-toggle="collapse"
-									data-parent="#accordionSecondary" href="#collapseSixBowelSounds"
-									aria-expanded="false" aria-controls="collapseSix"> Bowel
-									Sounds </a>
+									data-parent="#accordionSecondary"
+									href="#collapseSixBowelSounds" aria-expanded="false"
+									aria-controls="collapseSix"> Bowel Sounds </a>
 							</h4>
 						</div>
 						<div id="collapseSixBowelSounds" class="panel-collapse collapse"
@@ -807,9 +812,9 @@
 						<div class="panel-heading" role="tab" id="headingTen">
 							<h4 class="panel-title">
 								<a class="collapsed" role="button" data-toggle="collapse"
-									data-parent="#accordionSecondary" href="#collapseTenExtremities"
-									aria-expanded="false" aria-controls="collapseTen">
-									Extremities </a>
+									data-parent="#accordionSecondary"
+									href="#collapseTenExtremities" aria-expanded="false"
+									aria-controls="collapseTen"> Extremities </a>
 							</h4>
 						</div>
 						<div id="collapseTenExtremities" class="panel-collapse collapse"
@@ -826,175 +831,165 @@
 				<h1 class="page-header">Vitals</h1>
 				<div class="panel-group" id="accordionVitals" role="tablist"
 					aria-multiselectable="true">
-					<button class="btn btn-primary" data-toggle="modal" data-target="#newVitalEntry">
-        			Add Record
-    				</button>
-					<div class="modal fade" id="newVitalEntry" tabindex="-1" role="dialog"
-					     aria-labelledby="myModalLabel" aria-hidden="true">
-					    <div class="modal-dialog">
-					        <div class="modal-content">
-					            <!-- Modal Header -->
-					            <div class="modal-header">
-					                <button type="button" class="close"
-					                        data-dismiss="modal">
-					                    <span aria-hidden="true">&times;</span>
-					                    <span class="sr-only">Close</span>
-					                </button>
-					                <h4 class="modal-title text-center" id="newEMRLabel">
-					                    New Vital Entry
-					                </h4>
-					            </div>
+					<button class="btn btn-primary" data-toggle="modal"
+						data-target="#newVitalEntry">Add Record</button>
+					<div class="modal fade" id="newVitalEntry" tabindex="-1"
+						role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<!-- Modal Header -->
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">
+										<span aria-hidden="true">&times;</span> <span class="sr-only">Close</span>
+									</button>
+									<h4 class="modal-title text-center" id="newEMRLabel">New
+										Vital Entry</h4>
+								</div>
 
-					            <!-- Modal Body -->
-					            <div class="modal-body">
+								<!-- Modal Body -->
+								<div class="modal-body">
 
-					                <form class="form-horizontal" role="form">
-					                    <div class="form-group">
-					                        <label class="col-md-3 control-label">Blood Pressure</label>
-					                        <div class="col-md-6">
-					                            <input id="bp" name="bp" type="text" placeholder=""
-					                                   class="form-control input-md">
-					                        </div>
-					                    </div>
+									<form class="form-horizontal" role="form">
+										<div class="form-group">
+											<label class="col-md-3 control-label">Blood Pressure</label>
+											<div class="col-md-6">
+												<input id="bp" name="bp" type="text" placeholder=""
+													class="form-control input-md">
+											</div>
+										</div>
 
-					                    <div class="form-group">
-					                        <label class="col-md-3 control-label">Pulse</label>
-					                        <div class="col-md-6">
-					                            <input id="pulse" name="pulse" type="text" placeholder=""
-					                                   class="form-control input-md">
-					                        </div>
-					                    </div>
+										<div class="form-group">
+											<label class="col-md-3 control-label">Pulse</label>
+											<div class="col-md-6">
+												<input id="pulse" name="pulse" type="text" placeholder=""
+													class="form-control input-md">
+											</div>
+										</div>
 
-					                    <div class="form-group">
-					                        <label class="col-md-3 control-label">Resp</label>
-					                        <div class="col-md-6">
-					                            <input id="resp" name="resp" type="text" placeholder=""
-					                                   class="form-control input-md">
-					                        </div>
-					                    </div>
+										<div class="form-group">
+											<label class="col-md-3 control-label">Resp</label>
+											<div class="col-md-6">
+												<input id="resp" name="resp" type="text" placeholder=""
+													class="form-control input-md">
+											</div>
+										</div>
 
-					                    <div class="form-group">
-					                        <label class="col-md-3 control-label">Temperature (celsius)</label>
-					                        <div class="col-md-6">
-					                            <input id="temp" name="temp" type="text" placeholder=""
-					                                   class="form-control input-md">
-					                        </div>
-					                    </div>
+										<div class="form-group">
+											<label class="col-md-3 control-label">Temperature
+												(celsius)</label>
+											<div class="col-md-6">
+												<input id="temp" name="temp" type="text" placeholder=""
+													class="form-control input-md">
+											</div>
+										</div>
 
-					                    <div class="form-group">
-					                        <label class="col-md-3 control-label">SpO2</label>
-					                        <div class="col-md-6">
-					                            <input id="spO2" name="spO2" type="text" placeholder=""
-					                                   class="form-control input-md">
-					                        </div>
-					                    </div>
+										<div class="form-group">
+											<label class="col-md-3 control-label">SpO2</label>
+											<div class="col-md-6">
+												<input id="spO2" name="spO2" type="text" placeholder=""
+													class="form-control input-md">
+											</div>
+										</div>
 
 
-					                    <div class="form-group">
-					                        <label class="col-md-3 control-label">Pain</label>
-					                        <div class="col-md-6">
-					                        	<div class="material-switch pull-left">
-					                            	<input id="pain" name="pain" type="checkbox" /> <label for="pain" class="label-success"></label>
-					                            </div>
-					                        </div>
-					                    </div>
-					                    <div class="form-group">
-					                        <label class="col-md-3 control-label">Location</label>
-					                        <div class="col-md-6">
-					                            <input id="painLocation" name="painLocation" type="text" placeholder=""
-					                                   class="form-control input-md">
-					                        </div>
-					                    </div>
-					                    <div class="form-group">
-					                        <label class="col-md-3 control-label">Scale</label>
-					                        <div class="col-md-6">
-					                            <input id="painScale" name="painScale" type="text" placeholder=""
-					                                   class="form-control input-md">
-					                        </div>
-					                    </div>
+										<div class="form-group">
+											<label class="col-md-3 control-label">Pain</label>
+											<div class="col-md-6">
+												<div class="material-switch pull-left">
+													<input id="pain" name="pain" type="checkbox" /> <label
+														for="pain" class="label-success"></label>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-3 control-label">Location</label>
+											<div class="col-md-6">
+												<input id="painLocation" name="painLocation" type="text"
+													placeholder="" class="form-control input-md">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-md-3 control-label">Scale</label>
+											<div class="col-md-6">
+												<input id="painScale" name="painScale" type="text"
+													placeholder="" class="form-control input-md">
+											</div>
+										</div>
 
-					                    <div class="form-group">
-					                        <label class="col-md-3 control-label">Pupils Size</label>
-					                        <div class="col-md-6">
-					                        	Right
-					                            <input id="rightPupilSize" name="rightPupilSize" type="text" placeholder=""
-					                                   class="form-control input-md">
-					                            Left
-					                            <input id="leftPupilSize" name="leftPupilSize" type="text" placeholder=""
-					                                   class="form-control input-md">
-					                        </div>
-					                    </div>
+										<div class="form-group">
+											<label class="col-md-3 control-label">Pupils Size</label>
+											<div class="col-md-6">
+												Right <input id="rightPupilSize" name="rightPupilSize"
+													type="text" placeholder="" class="form-control input-md">
+												Left <input id="leftPupilSize" name="leftPupilSize"
+													type="text" placeholder="" class="form-control input-md">
+											</div>
+										</div>
 
-					                    <div class="form-group">
-					                        <label class="col-md-3 control-label">Pupils Reaction</label>
-					                        <div class="col-md-6">
-					                        	Right
-					                            <input id="rightPupilReaction" name="rightPupilReaction" type="text" placeholder=""
-					                                   class="form-control input-md">
-					                            Left
-					                            <input id="leftPupilReaction" name="leftPupilReaction" type="text" placeholder=""
-					                                   class="form-control input-md">
-					                        </div>
-					                    </div>
+										<div class="form-group">
+											<label class="col-md-3 control-label">Pupils Reaction</label>
+											<div class="col-md-6">
+												Right <input id="rightPupilReaction"
+													name="rightPupilReaction" type="text" placeholder=""
+													class="form-control input-md"> Left <input
+													id="leftPupilReaction" name="leftPupilReaction" type="text"
+													placeholder="" class="form-control input-md">
+											</div>
+										</div>
 
-					                    <div class="form-group">
-					                        <label class="col-md-3 control-label">Glasgow Coma Score</label>
-					                        <div class="col-md-6">
-					                            <input id="gcs" name="gcs" type="text" placeholder=""
-					                                   class="form-control input-md">
-					                        </div>
-					                    </div>
+										<div class="form-group">
+											<label class="col-md-3 control-label">Glasgow Coma
+												Score</label>
+											<div class="col-md-6">
+												<input id="gcs" name="gcs" type="text" placeholder=""
+													class="form-control input-md">
+											</div>
+										</div>
 
-					                    <div class="form-group">
-					                        <label class="col-md-3 control-label">ETCO2</label>
-					                        <div class="col-md-6">
-					                            <input id="etco2" name="etco2" type="text" placeholder=""
-					                                   class="form-control input-md">
-					                        </div>
-					                    </div>
+										<div class="form-group">
+											<label class="col-md-3 control-label">ETCO2</label>
+											<div class="col-md-6">
+												<input id="etco2" name="etco2" type="text" placeholder=""
+													class="form-control input-md">
+											</div>
+										</div>
 
-					                    <div class="form-group">
-					                        <label class="col-md-3 control-label">Vent Settings</label>
-					                        <div class="col-md-6">
-					                        	FiO2
-					                            <input id="ventfio2" name="ventfio2" type="text" placeholder=""
-					                                   class="form-control input-md">
-					                            Rate
-					                            <input id="ventrate" name="ventrate" type="text" placeholder=""
-					                                   class="form-control input-md">
-					                            PEEP
-					                            <input id="ventpeep" name="ventpeep" type="text" placeholder=""
-					                                   class="form-control input-md">
-					                            PS
-					                            <input id="ventps" name="ventps" type="text" placeholder=""
-					                                   class="form-control input-md">
-					                            TV
-					                            <input id="venttv" name="venttv" type="text" placeholder=""
-					                                   class="form-control input-md">
-					                        </div>
-					                    </div>
+										<div class="form-group">
+											<label class="col-md-3 control-label">Vent Settings</label>
+											<div class="col-md-6">
+												FiO2 <input id="ventfio2" name="ventfio2" type="text"
+													placeholder="" class="form-control input-md"> Rate
+												<input id="ventrate" name="ventrate" type="text"
+													placeholder="" class="form-control input-md"> PEEP
+												<input id="ventpeep" name="ventpeep" type="text"
+													placeholder="" class="form-control input-md"> PS <input
+													id="ventps" name="ventps" type="text" placeholder=""
+													class="form-control input-md"> TV <input
+													id="venttv" name="venttv" type="text" placeholder=""
+													class="form-control input-md">
+											</div>
+										</div>
 
-					                    <div class="form-group">
-					                        <label class="col-md-3 control-label">Comments</label>
-					                        <div class="col-md-6">
-					                            <textarea id="vitalComments" name="vitalComments"  placeholder=""
-					                                   class="form-control input-md" cols="50" rows="4">
+										<div class="form-group">
+											<label class="col-md-3 control-label">Comments</label>
+											<div class="col-md-6">
+												<textarea id="vitalComments" name="vitalComments"
+													placeholder="" class="form-control input-md" cols="50"
+													rows="4">
 					                            </textarea>
-					                        </div>
-					                    </div>
-					                </form>
-					            </div>
+											</div>
+										</div>
+									</form>
+								</div>
 
-					            <!-- Modal Footer -->
-				                <div class="modal-footer">
-				                    <button type="button" class="btn btn-default"
-				                            id="vitalSave">
-				                        Save
-				                    </button>
-				                </div>
+								<!-- Modal Footer -->
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" id="vitalSave">
+										Save</button>
+								</div>
 
-					        </div>
-					    </div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -1060,7 +1055,8 @@
 							<h4 class="panel-title">
 								<a class="collapsed" role="button" data-toggle="collapse"
 									data-parent="#accordionIVFluids" href="#collapseOneSite1"
-									aria-expanded="false" aria-controls="collapseOneSite1"> Site 1</a>
+									aria-expanded="false" aria-controls="collapseOneSite1">
+									Site 1</a>
 							</h4>
 						</div>
 						<div id="collapseOneSite1" class="panel-collapse collapse"
@@ -1070,37 +1066,36 @@
 									<div class="row">
 										<div class="well well-sm">
 											<div class="text-center">
-											<form class="form-horizontal">
-												<div class="form-group">
-													<label class="col-md-1 col-md-offset-13 control-label"
-														for="site1name">Site 1</label>
-													<div class="col-md-2">
-														<input id="site1name" name="site1name"
-															type="text" placeholder="" class="form-control input-md">
+												<form class="form-horizontal">
+													<div class="form-group">
+														<label class="col-md-1 col-md-offset-13 control-label"
+															for="site1name">Site 1</label>
+														<div class="col-md-2">
+															<input id="site1name" name="site1name" type="text"
+																placeholder="" class="form-control input-md">
+														</div>
+														<label class="col-md-1 col-md-offset-1 control-label"
+															for="site1IVGauge">IVGauge</label>
+														<div class="col-md-2">
+															<input id="site1IVGauge" name="site1IVGauge" type="text"
+																placeholder="" class="form-control input-md">
+														</div>
+														<label class="col-md-1 col-md-offset-1 control-label"
+															for="site1Initial">Initials</label>
+														<div class="col-md-2">
+															<input id="site1Initial" name="site1Initial" type="text"
+																placeholder="" class="form-control input-md">
+														</div>
 													</div>
-													<label class="col-md-1 col-md-offset-1 control-label"
-														for="site1IVGauge">IVGauge</label>
-													<div class="col-md-2">
-														<input id="site1IVGauge" name="site1IVGauge"
-															type="text" placeholder="" class="form-control input-md">
-													</div>
-													<label class="col-md-1 col-md-offset-1 control-label"
-														for="site1Initial">Initials</label>
-													<div class="col-md-2">
-														<input id="site1Initial" name="site1Initial"
-															type="text" placeholder="" class="form-control input-md">
-													</div>
-												</div>
-											</form>
+												</form>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="well well-sm">
 											<div class="text-center">
-												<button class="btn btn-primary" data-toggle="modal" data-target="#newIVFluidsEntry">
-								        			Add Record
-								    			</button>
+												<button class="btn btn-primary" data-toggle="modal"
+													data-target="#newIVFluidsEntry">Add Record</button>
 											</div>
 										</div>
 									</div>
@@ -1115,7 +1110,8 @@
 							<h4 class="panel-title">
 								<a class="collapsed" role="button" data-toggle="collapse"
 									data-parent="#accordionIVFluids" href="#collapseTwoSite1"
-									aria-expanded="false" aria-controls="collapseTwoSite1"> Site 2</a>
+									aria-expanded="false" aria-controls="collapseTwoSite1">
+									Site 2</a>
 							</h4>
 						</div>
 						<div id="collapseTwoSite1" class="panel-collapse collapse"
@@ -1125,37 +1121,36 @@
 									<div class="row">
 										<div class="well well-sm">
 											<div class="text-center">
-											<form class="form-horizontal">
-												<div class="form-group">
-													<label class="col-md-1 col-md-offset-13 control-label"
-														for="site2name">Site 2</label>
-													<div class="col-md-2">
-														<input id="site2name" name="site2name"
-															type="text" placeholder="" class="form-control input-md">
+												<form class="form-horizontal">
+													<div class="form-group">
+														<label class="col-md-1 col-md-offset-13 control-label"
+															for="site2name">Site 2</label>
+														<div class="col-md-2">
+															<input id="site2name" name="site2name" type="text"
+																placeholder="" class="form-control input-md">
+														</div>
+														<label class="col-md-1 col-md-offset-1 control-label"
+															for="site2IVGauge">IVGauge</label>
+														<div class="col-md-2">
+															<input id="site2IVGauge" name="site2IVGauge" type="text"
+																placeholder="" class="form-control input-md">
+														</div>
+														<label class="col-md-1 col-md-offset-1 control-label"
+															for="site2Initial">Initials</label>
+														<div class="col-md-2">
+															<input id="site2Initial" name="site2Initial" type="text"
+																placeholder="" class="form-control input-md">
+														</div>
 													</div>
-													<label class="col-md-1 col-md-offset-1 control-label"
-														for="site2IVGauge">IVGauge</label>
-													<div class="col-md-2">
-														<input id="site2IVGauge" name="site2IVGauge"
-															type="text" placeholder="" class="form-control input-md">
-													</div>
-													<label class="col-md-1 col-md-offset-1 control-label"
-														for="site2Initial">Initials</label>
-													<div class="col-md-2">
-														<input id="site2Initial" name="site2Initial"
-															type="text" placeholder="" class="form-control input-md">
-													</div>
-												</div>
-											</form>
+												</form>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="well well-sm">
 											<div class="text-center">
-												<button class="btn btn-primary" data-toggle="modal" data-target="#newIVFluidsEntry">
-								        			Add Record
-								    			</button>
+												<button class="btn btn-primary" data-toggle="modal"
+													data-target="#newIVFluidsEntry">Add Record</button>
 											</div>
 										</div>
 									</div>
@@ -1164,62 +1159,57 @@
 						</div>
 					</div>
 
-					<div class="modal fade" id="newIVFluidsEntry" tabindex="-1" role="dialog"
-					     aria-labelledby="myModalLabel" aria-hidden="true">
-					    <div class="modal-dialog">
-					        <div class="modal-content">
-					            <!-- Modal Header -->
-					            <div class="modal-header">
-					                <button type="button" class="close"
-					                        data-dismiss="modal">
-					                    <span aria-hidden="true">&times;</span>
-					                    <span class="sr-only">Close</span>
-					                </button>
-					                <h4 class="modal-title text-center" id="newEMRLabel">
-					                    New IV Fluid Entry
-					                </h4>
-					            </div>
+					<div class="modal fade" id="newIVFluidsEntry" tabindex="-1"
+						role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<!-- Modal Header -->
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">
+										<span aria-hidden="true">&times;</span> <span class="sr-only">Close</span>
+									</button>
+									<h4 class="modal-title text-center" id="newEMRLabel">New
+										IV Fluid Entry</h4>
+								</div>
 
-					            <!-- Modal Body -->
-					            <div class="modal-body">
+								<!-- Modal Body -->
+								<div class="modal-body">
 
-					                <form class="form-horizontal" role="form">
-					                    <div class="form-group">
-					                        <label class="col-md-3 control-label">Amount</label>
-					                        <div class="col-md-6">
-					                            <input id="fluidAmount" name="fluidAmount" type="text" placeholder=""
-					                                   class="form-control input-md">
-					                        </div>
-					                    </div>
+									<form class="form-horizontal" role="form">
+										<div class="form-group">
+											<label class="col-md-3 control-label">Amount</label>
+											<div class="col-md-6">
+												<input id="fluidAmount" name="fluidAmount" type="text"
+													placeholder="" class="form-control input-md">
+											</div>
+										</div>
 
-					                    <div class="form-group">
-					                        <label class="col-md-3 control-label">Type</label>
-					                        <div class="col-md-6">
-					                            <input id="fluidType" name="fluidType" type="text" placeholder=""
-					                                   class="form-control input-md">
-					                        </div>
-					                    </div>
+										<div class="form-group">
+											<label class="col-md-3 control-label">Type</label>
+											<div class="col-md-6">
+												<input id="fluidType" name="fluidType" type="text"
+													placeholder="" class="form-control input-md">
+											</div>
+										</div>
 
-					                    <div class="form-group">
-					                        <label class="col-md-3 control-label">Amount Infused</label>
-					                        <div class="col-md-6">
-					                            <input id="fluidInfused" name="fluidInfused" type="text" placeholder=""
-					                                   class="form-control input-md">
-					                        </div>
-					                    </div>
-					                </form>
-					            </div>
+										<div class="form-group">
+											<label class="col-md-3 control-label">Amount Infused</label>
+											<div class="col-md-6">
+												<input id="fluidInfused" name="fluidInfused" type="text"
+													placeholder="" class="form-control input-md">
+											</div>
+										</div>
+									</form>
+								</div>
 
-					            <!-- Modal Footer -->
-				                <div class="modal-footer">
-				                    <button type="button" class="btn btn-default"
-				                            id="fluidSave">
-				                        Save
-				                    </button>
-				                </div>
+								<!-- Modal Footer -->
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" id="fluidSave">
+										Save</button>
+								</div>
 
-					        </div>
-					    </div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -1244,6 +1234,11 @@
 					</div>
 				</div>
 			</div>
+
+			<div id="reviewTimeline" style="display: none">
+				<div id="visualization"></div>
+				<div id="bloodPressure" style="position: relative;" class="col-lg-9 col-md-9 col-sm-9 col-xs-12"></div>
+			</div>
 			<!-- For longer demo page -->
 			<br> <br> <br> <br> <br> <br> <br>
 			<br> <br> <br>
@@ -1258,8 +1253,15 @@
 	<script src="js/jquery-1.11.0.min.js"></script>
 	<script src="js/script.js"></script>
 	<script src="js/index.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script
+		src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
 
-<!-- 	<style>
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.10.0/vis.min.js"></script>
+
+	<!-- 	<style>
 .social-likes, .social-likes__widget {
 	left: auto;
 	right: 2px;

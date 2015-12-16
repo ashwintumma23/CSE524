@@ -138,10 +138,33 @@
  left: 26px;
 }
 
-.btn span.glyphicon {
+/* .btn span.glyphicon {
  opacity: 0;
-}
+} */
 .btn.active span.glyphicon {
  opacity: 1;
 }
+
+
+.vis-item.green {
+	background-color: greenyellow;
+	border-color: green;
+}
+
+.vis-item.orange {
+	background-color: gold;
+	border-color: orange;
+}
+
+.vis-item.magenta {
+      background-color: magenta;
+      border-color: purple;
+      color: white;
+}
+
+.vis-item.brown {
+      background-color: #472F31;
+      border-color: #472F31;
+}
+
 
