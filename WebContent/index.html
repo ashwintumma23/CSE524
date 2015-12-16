@@ -4,6 +4,48 @@
 <link href="css/style.css" rel="stylesheet">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.10.0/vis.min.css" />
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.4/handlebars.min.js"></script>
+<script id="item-template" type="text/x-handlebars-template">
+    <table>
+      <tr>
+        <td colspan="3" class="description">{{description}}</td>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <th> - </th>
+        <td>{{name}}</td>
+      </tr>
+      <tr>
+         <td>Amount</td>
+        <th> - </th>
+        <td>{{amount}}</td>
+      </tr>
+    </table>
+  </script>
+
+<script id="vitals-template" type="text/x-handlebars-template">
+    <table >
+      <tr>
+        <td colspan="5" class="description">{{description}}</td>
+      </tr>
+      <tr>
+        <td>BP : <b>{{bp}}</b></td>
+       
+        <td>Pulse : <b>{{pulse}}</b></td>
+ 		
+		<td>Temp : <b>{{temp}}</b></td>
+      </tr>
+      <tr>
+         <td>Pain : <b>{{pain}}</b></td>
+     
+        <td>GCS : <b>{{gcs}}</b></td>
+ 	
+		<td>ETCO2 : <b>{{etco}}</b></td>
+      </tr>
+    </table>
+ </script>
+
 
 <!-- HTML5 shim IE8 support for HTML5 elements -->
 <!--[if lt IE 9]>
@@ -83,8 +125,8 @@
 							class="img-thumbnail"></img> Medications </a></li>
 					<li><a href="#ivfluids"><img src="images/secondary.png"
 							class="img-thumbnail"></img> IV Fluids </a></li>
-					<li><a href="#reviewTimeline"><img src="images/secondary.png"
-							class="img-thumbnail"></img> IV Fluids </a></li>
+					<li><a href="#reviewTimeline"><img src="images/review.png"
+							class="img-thumbnail"></img> Review </a></li>
 					<li><a href="#" data-toggle="modal" data-target="#toa"><img
 							src="images/toa.png" class="img-thumbnail"></img> Arrival Times </a></li>
 				</ul>
@@ -1236,16 +1278,43 @@
 			</div>
 
 			<div id="reviewTimeline" style="display: none">
-				<div id="visualization"></div>
-				<div id="bloodPressure" style="position: relative;" class="col-lg-9 col-md-9 col-sm-9 col-xs-12"></div>
+				<div class="row">
+					<h3 class="text-center">Overview</h3>
+					<div id="overview" style="margin: 10px"></div>
+				</div>
+				<hr>
+				<div class="text-center">
+					<button id="overviewToggle" class="btn btn-success collapsed" data-toggle="collapse"
+						data-target="#detailedOverview">Expand +</button>
+				</div>
+				<hr>
+				<div id="detailedOverview" class="collapse">
+					<div class="row">
+						<div id="bloodPressure"
+							style="display: block; position: relative; margin-top: 20px"
+							class="col-lg-9 col-md-9 col-sm-9 col-xs-12"></div>
+					</div>
+					<hr>
+					<div class="row">
+						<h3 class="text-center">Vitals</h3>
+						<div id="vitalsReview" style="margin: 10px"></div>
+					</div>
+					<hr>
+					<div class="row">
+						<h3 class="text-center">Fluids</h3>
+						<div id="fluidsReview" style="margin: 10px"></div>
+					</div>
+
+				</div>
+
 			</div>
 			<!-- For longer demo page -->
 			<br> <br> <br> <br> <br> <br> <br>
 			<br> <br> <br>
 
-			<footer class="footer">
+			<!-- <footer class="footer">
 				<p class="text-muted text-center">&copy; 2015</p>
-			</footer>
+			</footer> -->
 		</div>
 	</div>
 	<!-- /Place your content here -->

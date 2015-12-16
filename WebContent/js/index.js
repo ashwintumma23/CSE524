@@ -40,32 +40,20 @@ $(document)
 							i--;
 						}
 					});
+					
+					$('#overviewToggle').click(function(){ 
+					    $(this).text(function(i,old){
+					        return old=='Expand +' ?  'Collapse -' : 'Expand +';
+					    });
+					});
+
+					displayHeader();
 					displayTimeline();
 					displayBp();
+					displayFluids();
+					displayVitals();
 
-					$('#displayName').text(sessionStorage.getItem("name"));
-					$('#displayDob').text(sessionStorage.getItem("dob"));
-					var htmlToAdd = "";
-					var gen = sessionStorage.getItem("gender");
-					if (gen == "male") {
-						htmlToAdd = "<i class='fa fa-male fa-lg'></i> Male";
-					} else {
-						htmlToAdd = "<i class='fa fa-female fa-lg'></i> Female";
-					}
-					$('#displayGender').html(htmlToAdd);
-					$('#displayWeight').text(
-							sessionStorage.getItem("weight") + " Kgs.");
-					var level = sessionStorage.getItem("emergencyLevel");
-					if (level == "Level 1") {
-						$('#displayLevel').addClass("label label-danger");
-					} else if (level == "Level 2") {
-						$('#displayLevel').addClass("label label-warning");
-					} else {
-						$('#displayLevel').addClass("label label-info");
-					}
-					$('#displayLevel').text(level);
 					tabs = $('ul.tabNavigate li a');
-
 					tabs.bind('click', function(event) {
 						var $anchor = $(this);
 						$("#primSurvey").hide();
@@ -79,6 +67,34 @@ $(document)
 						event.preventDefault();
 					});
 				});
+
+function displayHeader() {
+	var htmlToAdd = "";
+
+	$('#displayName').text(sessionStorage.getItem("name"));
+	$('#displayDob').text(sessionStorage.getItem("dob"));
+
+	var gen = sessionStorage.getItem("gender");
+	if (gen == "male") {
+		htmlToAdd = "<i class='fa fa-male fa-lg'></i> Male";
+	} else {
+		htmlToAdd = "<i class='fa fa-female fa-lg'></i> Female";
+	}
+	$('#displayGender').html(htmlToAdd);
+
+	$('#displayWeight').text(sessionStorage.getItem("weight") + " Kgs.");
+
+	var level = sessionStorage.getItem("emergencyLevel");
+	if (level == "Level 1") {
+		$('#displayLevel').addClass("label label-danger");
+	} else if (level == "Level 2") {
+		$('#displayLevel').addClass("label label-warning");
+	} else {
+		$('#displayLevel').addClass("label label-info");
+	}
+
+	$('#displayLevel').text(level);
+};
 
 function displayTimeline() {
 	var groups = new vis.DataSet([ {
@@ -127,7 +143,7 @@ function displayTimeline() {
 		id : 2,
 		group : 2,
 		content : 'Reading 1',
-		start : new Date(2015, 12, 14, 12, 42),
+		start : new Date(2015, 12, 14, 12, 32),
 		type : 'point',
 		className : 'brown'
 	}, {
@@ -155,28 +171,28 @@ function displayTimeline() {
 		id : 6,
 		group : 2,
 		content : 'Reading 5',
-		start : new Date(2015, 12, 14, 13, 02),
+		start : new Date(2015, 12, 14, 13, 12),
 		type : 'point',
 		className : 'brown'
 	}, {
 		id : 7,
 		group : 2,
 		content : 'Reading 6',
-		start : new Date(2015, 12, 14, 13, 07),
+		start : new Date(2015, 12, 14, 13, 35),
 		type : 'point',
 		className : 'brown'
 	}, {
 		id : 8,
 		group : 2,
 		content : 'Reading 7',
-		start : new Date(2015, 12, 14, 13, 12),
+		start : new Date(2015, 12, 14, 13, 52),
 		type : 'point',
 		className : 'brown'
 	}, {
 		id : 9,
 		group : 2,
 		content : 'Reading 8',
-		start : new Date(2015, 12, 14, 13, 19),
+		start : new Date(2015, 12, 14, 14, 19),
 		type : 'point',
 		className : 'brown'
 	},
@@ -249,7 +265,8 @@ function displayTimeline() {
 	} ]);
 
 	// create visualization
-	var container = document.getElementById('visualization');
+	var container = document.getElementById('overview');
+
 	var options = {
 		// option groupOrder can be a property name or a sort function
 		// the sort function must compare two groups and return a value
@@ -258,7 +275,10 @@ function displayTimeline() {
 		//       0 when a == b
 		groupOrder : function(a, b) {
 			return a.value - b.value;
-		}
+		},
+		start : new Date(2015, 12, 14, 12, 00),
+		end : new Date(2015, 12, 14, 16, 00),
+		editable : false
 	};
 
 	var timeline = new vis.Timeline(container);
@@ -268,67 +288,261 @@ function displayTimeline() {
 
 };
 
-function displayBp(){
-	$('#bloodPressure').highcharts({
-        chart: {
-            zoomType: 'x'
-        },
-        title: {
-            text: 'Blodd pressure'
-        },
-        xAxis: {
-            type: 'datetime'
-        },
-        plotOptions: {
-            line: {
-                dataLabels: {
-                    enabled: true
-                },
-                enableMouseTracking: false
-            }
-        },
-        series: [{
-        		name:'Systolic',
-            data: [
-                [Date.UTC(2013,5,2,12,5), 108],
-                [Date.UTC(2013,5,2,12,10), 120],
-                [Date.UTC(2013,5,2,12,15), 135],
-                [Date.UTC(2013,5,2,12,26), 142],
-                [Date.UTC(2013,5,2,12,34), 135],
-                [Date.UTC(2013,5,2,12,40), 128],
-                [Date.UTC(2013,5,2,12,48), 126],
-                [Date.UTC(2013,5,2,12,52), 156],
-                [Date.UTC(2013,5,2,12,58), 160],
-                [Date.UTC(2013,5,2,13,5), 150],
-                [Date.UTC(2013,5,2,13,17), 120],
-                [Date.UTC(2013,5,2,13,29), 130],
-                [Date.UTC(2013,5,2,13,40), 118],
-                [Date.UTC(2013,5,2,13,48), 124],
-                [Date.UTC(2013,5,2,14,02), 130],
-                [Date.UTC(2013,5,2,14,20), 126],
-                [Date.UTC(2013,5,2,14,35), 135]
-            ]
-        },{
-        		name:'Diastolic',
-            data: [
-                 [Date.UTC(2013,5,2,12,5), 58],
-                [Date.UTC(2013,5,2,12,10), 60],
-                [Date.UTC(2013,5,2,12,15), 85],
-                [Date.UTC(2013,5,2,12,26), 82],
-                [Date.UTC(2013,5,2,12,34), 95],
-                [Date.UTC(2013,5,2,12,40), 88],
-                [Date.UTC(2013,5,2,12,48), 76],
-                [Date.UTC(2013,5,2,12,52), 106],
-                [Date.UTC(2013,5,2,12,58), 108],
-                [Date.UTC(2013,5,2,13,5), 90],
-                [Date.UTC(2013,5,2,13,17), 80],
-                [Date.UTC(2013,5,2,13,29), 72],
-                [Date.UTC(2013,5,2,13,40), 68],
-                [Date.UTC(2013,5,2,13,48), 58],
-                [Date.UTC(2013,5,2,14,02), 40],
-                [Date.UTC(2013,5,2,14,20), 66],
-                [Date.UTC(2013,5,2,14,35), 75]
-            ]
-        }]
-    });
+function displayFluids() {
+	var source = document.getElementById('item-template').innerHTML;
+	var template = Handlebars
+			.compile(document.getElementById('item-template').innerHTML);
+
+	// DOM element where the Timeline will be attached
+	var container = document.getElementById('fluidsReview');
+
+	// Create a DataSet (allows two way data-binding)
+	var items = new vis.DataSet([
+	// round of 16
+	{
+		name : 'Fluid 1',
+		amount : '100ml',
+		description : '2015-12-14 12:26',
+		start : '2015-12-14 12:26',
+			className : 'green'
+	}, {
+		name : 'Fluid 2',
+		amount : '100ml',
+		description : '2015-12-14 13:26',
+		start : '2015-12-14 13:26',
+		className : 'green'
+	}, {
+		name : 'Fluid 3',
+		amount : '100ml',
+		description : '2015-12-14 14:26',
+		start : '2015-12-14 14:26',
+		className : 'green'
+	},
+	{
+		name : 'Fluid 4',
+		amount : '100ml',
+		description : '2015-12-14 15:26',
+		start : '2015-12-14 15:26',
+		className : 'green'
+	}]);
+
+	// Configuration for the Timeline
+	var options = {
+		// specify a template for the items
+		template : template
+	};
+
+	var options = {
+		start : '2015-12-14 12:00',
+		end : '2015-12-14 16:00',
+		editable : false,
+		template : template
+	};
+
+	// Create a Timeline
+	var timeline = new vis.Timeline(container, items, options);
+}
+
+
+function displayVitals() {
+	var source = document.getElementById('vitals-template').innerHTML;
+	var template = Handlebars
+			.compile(document.getElementById('vitals-template').innerHTML);
+
+	// DOM element where the Timeline will be attached
+	var container = document.getElementById('vitalsReview');
+
+	// Create a DataSet (allows two way data-binding)
+	var items = new vis.DataSet([
+	// round of 16
+	{
+		bp : '128/85',
+		pulse : '85',
+		pain: 'Yes',
+		temp: '104',
+		gcs: '10',
+		etco: '25',
+		description : '2015-12-14 12:32',
+		start : '2015-12-14 12:32'
+	}, {
+		bp : '128/85',
+		pulse : '85',
+		pain: 'Yes',
+		temp: '104',
+		gcs: '10',
+		etco: '25',
+		description : '2015-12-14 12:47',
+		start : '2015-12-14 12:47'
+	}, {
+		bp : '128/85',
+		pulse : '85',
+		pain: 'Yes',
+		temp: '104',
+		gcs: '10',
+		etco: '25',
+		description : '2015-12-14 12:52',
+		start : '2015-12-14 12:52'
+	},
+	{
+		bp : '128/85',
+		pulse : '85',
+		pain: 'Yes',
+		temp: '104',
+		gcs: '10',
+		etco: '25',
+		description : '2015-12-14 12:57',
+		start : '2015-12-14 12:57'
+	},
+	{
+		bp : '128/85',
+		pulse : '85',
+		pain: 'Yes',
+		temp: '104',
+		gcs: '10',
+		etco: '25',
+		description : '2015-12-14 13:12',
+		start : '2015-12-14 13:12'
+	},
+	{
+		bp : '128/85',
+		pulse : '85',
+		pain: 'Yes',
+		temp: '104',
+		gcs: '10',
+		etco: '25',
+		description : '2015-12-14 13:35',
+		start : '2015-12-14 13:35'
+	},
+	{
+		bp : '128/85',
+		pulse : '85',
+		pain: 'Yes',
+		temp: '104',
+		gcs: '10',
+		etco: '25',
+		description : '2015-12-14 13:52',
+		start : '2015-12-14 13:52'
+	},
+	{
+		bp : '128/85',
+		pulse : '85',
+		pain: 'Yes',
+		temp: '104',
+		gcs: '10',
+		etco: '25',
+		description : '2015-12-14 14:19',
+		start : '2015-12-14 14:19'
+	}]);
+
+	// Configuration for the Timeline
+	var options = {
+		// specify a template for the items
+		template : template
+	};
+
+	var options = {
+		start : '2015-12-14 12:00',
+		end : '2015-12-14 14:45',
+		editable : false,
+		template : template
+	};
+
+	// Create a Timeline
+	var timeline = new vis.Timeline(container, items, options);
+}
+
+
+function displayBp() {
+	$('#bloodPressure').highcharts(
+			{
+				chart : {
+					type : 'spline'
+				},
+				title : {
+					text : 'Blood pressure'
+				},
+				xAxis : {
+					type : 'datetime',
+					title : {
+						text : 'Time'
+					}
+				},
+				tooltip : {
+					valueSuffix : ' mmHg',
+					enabled : true
+				},
+				yAxis : {
+					title : {
+						text : 'Blood pressure (mmHg)'
+					},
+					minorGridLineWidth : 0,
+					gridLineWidth : 0,
+					alternateGridColor : null,
+					plotBands : [ { // Light air
+						from : 0,
+						to : 60,
+						color : 'rgba(237, 92, 101, 0.1)'
+
+					}, { // Light breeze
+						from : 61,
+						to : 140,
+						color : 'rgba(0, 0, 0, 0)'
+
+					}, { // Gentle breeze
+						from : 140,
+						to : 300,
+						color : 'rgba(237, 92, 101, 0.1)'
+
+					} ]
+				},
+				plotOptions : {
+					spline : {
+						dataLabels : {
+							enabled : true
+						},
+						enableMouseTracking : true
+					}
+				},
+				series : [
+						{
+							name : 'Systolic',
+							data : [ [ Date.UTC(2013, 5, 2, 12, 5), 108 ],
+									[ Date.UTC(2013, 5, 2, 12, 10), 120 ],
+									[ Date.UTC(2013, 5, 2, 12, 15), 135 ],
+									[ Date.UTC(2013, 5, 2, 12, 26), 142 ],
+									[ Date.UTC(2013, 5, 2, 12, 34), 135 ],
+									[ Date.UTC(2013, 5, 2, 12, 40), 128 ],
+									[ Date.UTC(2013, 5, 2, 12, 48), 126 ],
+									[ Date.UTC(2013, 5, 2, 12, 52), 156 ],
+									[ Date.UTC(2013, 5, 2, 12, 58), 160 ],
+									[ Date.UTC(2013, 5, 2, 13, 5), 150 ],
+									[ Date.UTC(2013, 5, 2, 13, 17), 120 ],
+									[ Date.UTC(2013, 5, 2, 13, 29), 130 ],
+									[ Date.UTC(2013, 5, 2, 13, 40), 118 ],
+									[ Date.UTC(2013, 5, 2, 13, 48), 124 ],
+									[ Date.UTC(2013, 5, 2, 14, 02), 130 ],
+									[ Date.UTC(2013, 5, 2, 14, 20), 126 ],
+									[ Date.UTC(2013, 5, 2, 14, 35), 135 ] ]
+						},
+						{
+							name : 'Diastolic',
+							data : [ [ Date.UTC(2013, 5, 2, 12, 5), 58 ],
+									[ Date.UTC(2013, 5, 2, 12, 10), 60 ],
+									[ Date.UTC(2013, 5, 2, 12, 15), 85 ],
+									[ Date.UTC(2013, 5, 2, 12, 26), 82 ],
+									[ Date.UTC(2013, 5, 2, 12, 34), 95 ],
+									[ Date.UTC(2013, 5, 2, 12, 40), 88 ],
+									[ Date.UTC(2013, 5, 2, 12, 48), 76 ],
+									[ Date.UTC(2013, 5, 2, 12, 52), 106 ],
+									[ Date.UTC(2013, 5, 2, 12, 58), 108 ],
+									[ Date.UTC(2013, 5, 2, 13, 5), 90 ],
+									[ Date.UTC(2013, 5, 2, 13, 17), 80 ],
+									[ Date.UTC(2013, 5, 2, 13, 29), 72 ],
+									[ Date.UTC(2013, 5, 2, 13, 40), 68 ],
+									[ Date.UTC(2013, 5, 2, 13, 48), 58 ],
+									[ Date.UTC(2013, 5, 2, 14, 02), 40 ],
+									[ Date.UTC(2013, 5, 2, 14, 20), 66 ],
+									[ Date.UTC(2013, 5, 2, 14, 35), 75 ] ]
+						} ]
+			});
 };
