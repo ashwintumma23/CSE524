@@ -2,6 +2,9 @@
 <html>
 <head>
 <link href="css/style.css" rel="stylesheet">
+<link href="css/bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css">
+<link rel="stylesheet"
+          href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" />
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.10.0/vis.min.css" />
 <script
@@ -123,12 +126,18 @@
 							class="img-thumbnail"></img> Vitals </a></li>
 					<li><a href="#medications"><img src="images/medicine.png"
 							class="img-thumbnail"></img> Medications </a></li>
+					<li><a href="#medicationsNew"><img src="images/medicine.png"
+							class="img-thumbnail"></img> Medications New </a><li>
 					<li><a href="#ivfluids"><img src="images/secondary.png"
 							class="img-thumbnail"></img> IV Fluids </a></li>
 					<li><a href="#reviewTimeline"><img src="images/review.png"
 							class="img-thumbnail"></img> Review </a></li>
 					<li><a href="#" data-toggle="modal" data-target="#toa"><img
 							src="images/toa.png" class="img-thumbnail"></img> Arrival Times </a></li>
+					<li><a href="#labStudies"><img src="images/labtests.png"
+							class="img-thumbnail"></img> Lab Studies </a></li>
+					<li><a href="#labStudiesRadio"><img src="images/xray.png"
+							class="img-thumbnail"></img> Lab Studies Radiology  </a></li>
 				</ul>
 
 			</div>
@@ -1087,6 +1096,115 @@
 				<!--/row-->
 			</div>
 
+
+			<div id="medicationsNew" style="display: none">
+				<h1 class="page-header">Medications New</h1>
+				<div class="panel-group" id="accordionMedicationsNew" role="tablist"
+					aria-multiselectable="true">
+					<button class="btn btn-primary" data-toggle="modal" data-target="#newMedicationsEntry">
+        			Add Record
+    				</button>
+					<div class="modal fade" id="newMedicationsEntry" tabindex="-1" role="dialog"
+					     aria-labelledby="myModalLabel" aria-hidden="true">
+					    <div class="modal-dialog">
+					        <div class="modal-content">
+					            <!-- Modal Header -->
+					            <div class="modal-header">
+					                <button type="button" class="close"
+					                        data-dismiss="modal">
+					                    <span aria-hidden="true">&times;</span>
+					                    <span class="sr-only">Close</span>
+					                </button>
+					                <h4 class="modal-title text-center" id="newMedicationsLabel">
+					                    New Medications Entry
+					                </h4>
+					            </div>
+
+
+					            <!-- Modal Body -->
+					            <div class="modal-body">
+					                <form class="form-horizontal" role="form">
+					                
+
+									                
+					                
+					                    <div class="form-group">
+					                        <label class="col-md-3 control-label">Name</label>
+					                        <div class="col-md-6">
+					                            <input id="medicationName" name="medicationName" type="text" placeholder=""
+					                                   class="form-control input-md">
+					                        </div>
+					                    </div>
+
+					                    <div class="form-group">
+					                        <label class="col-md-3 control-label">Dosage</label>
+					                        <div class="col-md-6">
+					                            <input id="dosage" name="dosage" type="text" placeholder=""
+					                                   class="form-control input-md">
+					                        </div>
+					                    </div>
+
+				                        <div class="form-group">
+				                            <label class="col-md-3 control-label">Time</label>
+				                            <div class="col-md-6 date">
+				                                <div class="input-group input-append date"
+				                                     id="medicationsTimeDatePicker">
+				                                    <input type="text" class="form-control" id="medicationsTime"
+				                                           name="medicationsTime" placeholder="MM/DD/YYYY HH:MM AM/PM"/> <span
+				                                        class="input-group-addon add-on"><span
+				                                        class="fa fa-calendar"></span></span>
+				                                </div>
+				                            </div>
+				                        </div>
+
+					                    <div class="form-group">
+					                        <label class="col-md-3 control-label">Route</label>
+					                        <div class="col-md-6">
+					                            <input id="route" name="route" type="text" placeholder=""
+					                                   class="form-control input-md">
+					                        </div>
+					                    </div>
+
+					                    <div class="form-group">
+					                        <label class="col-md-3 control-label">Site</label>
+					                        <div class="col-md-6">
+					                            <input id="site" name="site" type="text" placeholder=""
+					                                   class="form-control input-md">
+					                        </div>
+					                    </div>
+
+					                    <div class="form-group">
+					                        <label class="col-md-3 control-label">MD</label>
+					                        <div class="col-md-6">
+					                            <input id="md" name="md" type="text" placeholder=""
+					                                   class="form-control input-md">
+					                        </div>
+					                    </div>
+					                    <div class="form-group">
+					                        <label class="col-md-3 control-label">RN Initials</label>
+					                        <div class="col-md-6">
+					                            <input id="rn" name="rn" type="text" placeholder=""
+					                                   class="form-control input-md">
+					                        </div>
+					                    </div>
+
+					                </form>
+					            </div>
+
+					            <!-- Modal Footer -->
+				                <div class="modal-footer">
+				                    <button type="button" class="btn btn-default"
+				                            id="newModificationsSave">
+				                        Save
+				                    </button>
+				                </div>
+
+					        </div>
+					    </div>
+					</div>
+				</div>
+			</div>			
+
 			<div id="ivfluids" style="display: none">
 				<h1 class="page-header">IV Fluids</h1>
 				<div class="panel-group" id="accordionIVFluids" role="tablist"
@@ -1308,6 +1426,165 @@
 				</div>
 
 			</div>
+
+			<div id="labStudies" style="display: none">
+				<h1 class="page-header">Lab Studies</h1>
+				<div class="panel-group" id="accordionLabStudies" role="tablist"
+					aria-multiselectable="true">
+					<button class="btn btn-primary" data-toggle="modal" data-target="#newLabStudyEntry">
+        			Add Record
+    				</button>
+					<div class="modal fade" id="newLabStudyEntry" tabindex="-1" role="dialog"
+					     aria-labelledby="myModalLabel" aria-hidden="true">
+					    <div class="modal-dialog">
+					        <div class="modal-content">
+					            <!-- Modal Header -->
+					            <div class="modal-header">
+					                <button type="button" class="close"
+					                        data-dismiss="modal">
+					                    <span aria-hidden="true">&times;</span>
+					                    <span class="sr-only">Close</span>
+					                </button>
+					                <h4 class="modal-title text-center" id="newLabStudyLabel">
+					                    New Lab Study Entry
+					                </h4>
+					            </div>
+
+
+					            <!-- Modal Body -->
+					            <div class="modal-body">
+					                <form class="form-horizontal" role="form">
+					                
+				                        <div class="form-group">
+				                            <label class="col-md-3 control-label">Time</label>
+				                            <div class="col-md-6 date">
+				                                <div class="input-group input-append date"
+				                                     id="labStudyTimeDatePicker">
+				                                    <input type="text" class="form-control" id="labStudyTime"
+				                                           name="labStudyTime" placeholder="MM/DD/YYYY HH:MM AM/PM"/> <span
+				                                        class="input-group-addon add-on"><span
+				                                        class="fa fa-calendar"></span></span>
+				                                </div>
+				                            </div>
+				                        </div>
+
+										<div class="form-group">
+										  <label class="col-md-3 control-label">Lab Study</label>
+										  <div class="col-md-6">
+											  <select class="combobox form-control" id="labStudy" name="labStudy" placeholder="">
+											    <option value="" selected="selected">Lab Study Obtained</option>
+												<option value="bloodGas">Blood Gas</option>
+												<option value="cbch">CBC H and H</option>
+												<option value="bmp">BMP</option>
+												<option value="cmp">CMP</option>
+												<option value="ptptt">PT/PTT</option>
+												<option value="amylase">Amylase/ Lipase</option>
+												<option value="ua">UA</option>
+												<option value="urinecs">Urine C and S</option>
+												<option value="hcg">HCG</option>
+												<option value="toxicBlood">Toxicology Screen Blood</option>
+												<option value="toxicUrine">Toxicology Screen Urine</option>
+												<option value="typeAndXMatch">Type and X-Match</option>
+												<option value="typeAndScreen">Type and Screen</option>
+												<option value="otherLab">Other</option>											    
+											  </select>
+										  </div>
+										</div>
+									                
+					                </form>
+					            </div>
+
+					            <!-- Modal Footer -->
+				                <div class="modal-footer">
+				                    <button type="button" class="btn btn-default"
+				                            id="labStudiesSave">
+				                        Save
+				                    </button>
+				                </div>
+
+					        </div>
+					    </div>
+					</div>
+				</div>
+			</div>
+
+			<div id="labStudiesRadio" style="display: none">
+				<h1 class="page-header">Lab Studies Radiology</h1>
+				<div class="panel-group" id="accordionLabStudiesRadio" role="tablist"
+					aria-multiselectable="true">
+					<button class="btn btn-primary" data-toggle="modal" data-target="#newLabStudyRadioEntry">
+        			Add Record
+    				</button>
+					<div class="modal fade" id="newLabStudyRadioEntry" tabindex="-1" role="dialog"
+					     aria-labelledby="myModalLabel" aria-hidden="true">
+					    <div class="modal-dialog">
+					        <div class="modal-content">
+					            <!-- Modal Header -->
+					            <div class="modal-header">
+					                <button type="button" class="close"
+					                        data-dismiss="modal">
+					                    <span aria-hidden="true">&times;</span>
+					                    <span class="sr-only">Close</span>
+					                </button>
+					                <h4 class="modal-title text-center" id="newLabStudyLabel">
+					                    New Lab Study Radio Entry
+					                </h4>
+					            </div>
+
+
+					            <!-- Modal Body -->
+					            <div class="modal-body">
+					                <form class="form-horizontal" role="form">
+					                
+				                        <div class="form-group">
+				                            <label class="col-md-3 control-label">Time</label>
+				                            <div class="col-md-6 date">
+				                                <div class="input-group input-append date"
+				                                     id="labStudyTimeRadioDatePicker">
+				                                    <input type="text" class="form-control" id="labStudyRadioTime"
+				                                           name="labStudyRadioTime" placeholder="MM/DD/YYYY HH:MM AM/PM"/> <span
+				                                        class="input-group-addon add-on"><span
+				                                        class="fa fa-calendar"></span></span>
+				                                </div>
+				                            </div>
+				                        </div>
+									                
+										<div class="form-group">
+										  <label class="col-md-3 control-label">Radiology Obtained</label>
+										  <div class="col-md-6">
+											  <select class="combobox form-control" id="labStudyRadio" name="labStudyRadio" placeholder="">
+											    <option value="" selected="selected">Radiology Obtained</option>
+											    <option value="cspine">C-Spine</option>
+											    <option value="chest">Chest</option>
+											    <option value="abdomen">Abdomen</option>
+											    <option value="pelvis">Pelvis</option>
+											    <option value="skull">Skull</option>
+											    <option value="maxillofacial">Maxillo Facial</option>
+											    <option value="fast">Fast</option>
+											    <option value="cthead">CT Head</option>
+											    <option value="ctabdomen">CT Abdomen</option>
+											    <option value="otherRadio">Other</option>
+											  </select>
+										  </div>
+										</div>					                
+					                
+					                </form>
+					            </div>
+
+					            <!-- Modal Footer -->
+				                <div class="modal-footer">
+				                    <button type="button" class="btn btn-default"
+				                            id="labStudiesRadioSave">
+				                        Save
+				                    </button>
+				                </div>
+
+					        </div>
+					    </div>
+					</div>
+				</div>
+			</div>
+
 			<!-- For longer demo page -->
 			<br> <br> <br> <br> <br> <br> <br>
 			<br> <br> <br>
@@ -1329,6 +1606,18 @@
 
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.10.0/vis.min.js"></script>
+	<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+	<script
+        src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+	<script src="js/bootstrap-combobox.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      //<![CDATA[
+        $(document).ready(function(){
+          $('.combobox').combobox()
+        });
+      //]]>
+    </script>
 
 	<!-- 	<style>
 .social-likes, .social-likes__widget {

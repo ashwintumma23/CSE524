@@ -4,6 +4,39 @@
 $(document)
 		.ready(
 				function() {
+					    $('#labStudyTimeDatePicker')
+					    .datetimepicker({
+						sideBySide: true
+					    });
+
+					    $('#labStudyTimeRadioDatePicker')
+					    .datetimepicker({
+						sideBySide: true
+					    });
+
+					    $("#labStudiesRadioSave").on('click', function(event) {
+				//                sessionStorage.setItem("name",$("#name").val());
+				//                sessionStorage.setItem("dob",$("#dob").val());
+				//                sessionStorage.setItem("gender",$("#gender input:radio:checked").val());
+				//                sessionStorage.setItem("arrivalTime",$("#arrivalTime").val());
+				//                sessionStorage.setItem("arrivalMode",$("#arrivalMode").val());
+				//                sessionStorage.setItem("weight",$("#weight").val());
+				//                sessionStorage.setItem("emergencyLevel",$("#emergenceyLevel input:radio:checked").val());
+				//                event.preventDefault();
+				//                $('#newEMREntry').modal('toggle');
+				//                $('#redirect').click();
+				//                window.location.href = "index.html";
+					    	alert('Save Clicked');
+					    	alert($("#labStudyRadio").val());
+					    	alert($("#labStudyRadioTime").val());
+					    	
+					    });
+					    
+					    $('#medicationsTimeDatePicker')
+					    .datetimepicker({
+						sideBySide: true
+					    });
+
 					$('[data-toggle=offcanvas]').click(function() {
 						$('.row-offcanvas').toggleClass('active');
 					});
@@ -59,9 +92,12 @@ $(document)
 						$("#primSurvey").hide();
 						$("#secondarySurvey").hide();
 						$("#medications").hide();
+						$("#medicationsNew").hide();
 						$("#reviewTimeline").hide();
 						$("#vitals").hide();
 						$("#ivfluids").hide();
+						$("#labStudies").hide();
+						$("#labStudiesRadio").hide();
 						event.preventDefault();
 						$($anchor.attr('href')).show();
 						event.preventDefault();
