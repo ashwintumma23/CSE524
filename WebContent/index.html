@@ -1377,14 +1377,40 @@
 
 			<div id="toaContainer">
 				<div class="modal fade" id="toa" role="dialog">
-					<div class="modal-dialog modal-sm">
+					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
-								<h4 class="modal-title">Modal Header</h4>
+								<h4 class="modal-title">Arrival Times record</h4>
 							</div>
+							
 							<div class="modal-body">
-								<p>This is a small modal.</p>
+							
+								<form class="form-horizontal" role="form">
+										<div class="form-group">
+											<label class="col-md-4 control-label">Trauma Activation</label>
+											<div class="col-md-6">
+												<input id="traumaAct" name="traumaAct" type="text"
+													placeholder="" class="form-control input-md">
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-md-4 control-label">Trauma Team</label>
+											<div class="col-md-6">
+												<input id="traumaTeam" name="traumaTeam" type="text"
+													placeholder="" class="form-control input-md">
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="col-md-4 control-label">Surgirical Attending</label>
+											<div class="col-md-6">
+												<input id="surgTeam" name="surgTeam" type="text"
+													placeholder="" class="form-control input-md">
+											</div>
+										</div>
+									</form>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"

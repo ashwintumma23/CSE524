@@ -80,6 +80,20 @@ $(document)
 					    });
 					});
 
+					
+					 $('#traumaAct')
+		                .datetimepicker({
+		                    sideBySide: true
+		                });
+					 
+					 $('#traumaTeam')
+		                .datetimepicker({
+		                    sideBySide: true
+		                });
+					 $('#surgTeam')
+		                .datetimepicker({
+		                    sideBySide: true
+		                });
 					displayHeader();
 					displayTimeline();
 					displayBp();
