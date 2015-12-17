@@ -4,38 +4,36 @@
 $(document)
 		.ready(
 				function() {
-					    $('#labStudyTimeDatePicker')
-					    .datetimepicker({
-						sideBySide: true
-					    });
+					$('#labStudyTimeDatePicker').datetimepicker({
+						sideBySide : true
+					});
 
-					    $('#labStudyTimeRadioDatePicker')
-					    .datetimepicker({
-						sideBySide: true
-					    });
+					$('#labStudyTimeRadioDatePicker').datetimepicker({
+						sideBySide : true
+					});
 
-					    $("#labStudiesRadioSave").on('click', function(event) {
-				//                sessionStorage.setItem("name",$("#name").val());
-				//                sessionStorage.setItem("dob",$("#dob").val());
-				//                sessionStorage.setItem("gender",$("#gender input:radio:checked").val());
-				//                sessionStorage.setItem("arrivalTime",$("#arrivalTime").val());
-				//                sessionStorage.setItem("arrivalMode",$("#arrivalMode").val());
-				//                sessionStorage.setItem("weight",$("#weight").val());
-				//                sessionStorage.setItem("emergencyLevel",$("#emergenceyLevel input:radio:checked").val());
-				//                event.preventDefault();
-				//                $('#newEMREntry').modal('toggle');
-				//                $('#redirect').click();
-				//                window.location.href = "index.html";
-					    	alert('Save Clicked');
-					    	alert($("#labStudyRadio").val());
-					    	alert($("#labStudyRadioTime").val());
-					    	
-					    });
-					    
-					    $('#medicationsTimeDatePicker')
-					    .datetimepicker({
-						sideBySide: true
-					    });
+					$('.combobox').combobox()
+					$("#labStudiesRadioSave")
+							.on(
+									'click',
+									function(event) {
+										var entrytoInsert = "<tr><td class='col-md-4'>"
+												+ $("#labStudyRadioTime").val()
+												+ "</td><td class='col-md-4'>"
+												+ $("#labStudyRadio").text()
+												+ "</td></tr>";
+										$(entrytoInsert)
+												.prependTo(
+														'#labStudiesRadioEntries table > tbody');
+										event.preventDefault();
+										$('#newLabStudyRadioEntry').modal(
+												'toggle');
+
+									});
+
+					$('#medicationsTimeDatePicker').datetimepicker({
+						sideBySide : true
+					});
 
 					$('[data-toggle=offcanvas]').click(function() {
 						$('.row-offcanvas').toggleClass('active');
@@ -73,27 +71,28 @@ $(document)
 							i--;
 						}
 					});
-					
-					$('#overviewToggle').click(function(){ 
-					    $(this).text(function(i,old){
-					        return old=='Expand +' ?  'Collapse -' : 'Expand +';
-					    });
+
+					$('#overviewToggle')
+							.click(
+									function() {
+										$(this)
+												.text(
+														function(i, old) {
+															return old == 'Expand +' ? 'Collapse -'
+																	: 'Expand +';
+														});
+									});
+
+					$('#traumaAct').datetimepicker({
+						sideBySide : true
 					});
 
-					
-					 $('#traumaAct')
-		                .datetimepicker({
-		                    sideBySide: true
-		                });
-					 
-					 $('#traumaTeam')
-		                .datetimepicker({
-		                    sideBySide: true
-		                });
-					 $('#surgTeam')
-		                .datetimepicker({
-		                    sideBySide: true
-		                });
+					$('#traumaTeam').datetimepicker({
+						sideBySide : true
+					});
+					$('#surgTeam').datetimepicker({
+						sideBySide : true
+					});
 					displayHeader();
 					displayTimeline();
 					displayBp();
@@ -354,7 +353,7 @@ function displayFluids() {
 		amount : '100ml',
 		description : '2015-12-14 12:26',
 		start : '2015-12-14 12:26',
-			className : 'green'
+		className : 'green'
 	}, {
 		name : 'Fluid 2',
 		amount : '100ml',
@@ -367,14 +366,13 @@ function displayFluids() {
 		description : '2015-12-14 14:26',
 		start : '2015-12-14 14:26',
 		className : 'green'
-	},
-	{
+	}, {
 		name : 'Fluid 4',
 		amount : '100ml',
 		description : '2015-12-14 15:26',
 		start : '2015-12-14 15:26',
 		className : 'green'
-	}]);
+	} ]);
 
 	// Configuration for the Timeline
 	var options = {
@@ -393,11 +391,10 @@ function displayFluids() {
 	var timeline = new vis.Timeline(container, items, options);
 }
 
-
 function displayVitals() {
 	var source = document.getElementById('vitals-template').innerHTML;
-	var template = Handlebars
-			.compile(document.getElementById('vitals-template').innerHTML);
+	var template = Handlebars.compile(document
+			.getElementById('vitals-template').innerHTML);
 
 	// DOM element where the Timeline will be attached
 	var container = document.getElementById('vitalsReview');
@@ -408,81 +405,76 @@ function displayVitals() {
 	{
 		bp : '128/85',
 		pulse : '85',
-		pain: 'Yes',
-		temp: '104',
-		gcs: '10',
-		etco: '25',
+		pain : 'Yes',
+		temp : '104',
+		gcs : '10',
+		etco : '25',
 		description : '2015-12-14 12:32',
 		start : '2015-12-14 12:32'
 	}, {
 		bp : '128/85',
 		pulse : '85',
-		pain: 'Yes',
-		temp: '104',
-		gcs: '10',
-		etco: '25',
+		pain : 'Yes',
+		temp : '104',
+		gcs : '10',
+		etco : '25',
 		description : '2015-12-14 12:47',
 		start : '2015-12-14 12:47'
 	}, {
 		bp : '128/85',
 		pulse : '85',
-		pain: 'Yes',
-		temp: '104',
-		gcs: '10',
-		etco: '25',
+		pain : 'Yes',
+		temp : '104',
+		gcs : '10',
+		etco : '25',
 		description : '2015-12-14 12:52',
 		start : '2015-12-14 12:52'
-	},
-	{
+	}, {
 		bp : '128/85',
 		pulse : '85',
-		pain: 'Yes',
-		temp: '104',
-		gcs: '10',
-		etco: '25',
+		pain : 'Yes',
+		temp : '104',
+		gcs : '10',
+		etco : '25',
 		description : '2015-12-14 12:57',
 		start : '2015-12-14 12:57'
-	},
-	{
+	}, {
 		bp : '128/85',
 		pulse : '85',
-		pain: 'Yes',
-		temp: '104',
-		gcs: '10',
-		etco: '25',
+		pain : 'Yes',
+		temp : '104',
+		gcs : '10',
+		etco : '25',
 		description : '2015-12-14 13:12',
 		start : '2015-12-14 13:12'
-	},
-	{
+	}, {
 		bp : '128/85',
 		pulse : '85',
-		pain: 'Yes',
-		temp: '104',
-		gcs: '10',
-		etco: '25',
+		pain : 'Yes',
+		temp : '104',
+		gcs : '10',
+		etco : '25',
 		description : '2015-12-14 13:35',
 		start : '2015-12-14 13:35'
-	},
-	{
+	}, {
 		bp : '128/85',
 		pulse : '85',
-		pain: 'Yes',
-		temp: '104',
-		gcs: '10',
-		etco: '25',
+		pain : 'Yes',
+		temp : '104',
+		gcs : '10',
+		etco : '25',
 		description : '2015-12-14 13:52',
 		start : '2015-12-14 13:52'
-	},
-	{
+	}, {
 		bp : '128/85',
 		pulse : '85',
-		pain: 'Yes',
-		temp: '104',
-		gcs: '10',
-		etco: '25',
+		pain : 'Yes',
+		temp : '104',
+		gcs : '10',
+		etco : '25',
 		description : '2015-12-14 14:19',
 		start : '2015-12-14 14:19'
-	}]);
+	} ]);
 
 	// Configuration for the Timeline
 	var options = {
@@ -500,7 +492,6 @@ function displayVitals() {
 	// Create a Timeline
 	var timeline = new vis.Timeline(container, items, options);
 }
-
 
 function displayBp() {
 	$('#bloodPressure').highcharts(
