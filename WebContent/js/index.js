@@ -12,8 +12,8 @@ $(document)
                 sideBySide: true
             });
 
-<<<<<<< Upstream, based on origin/master
-					$('.combobox').combobox()
+
+					$('.combobox').combobox();
 					$("#medicationsSave")
 							.on(
 									'click',
@@ -73,22 +73,8 @@ $(document)
 										event.preventDefault();
 										$('#newLabStudyRadioEntry').modal(
 												'toggle');
-=======
-            $('.combobox').combobox()
-            $("#labStudiesRadioSave")
-                .on(
-                    'click',
-                    function(event) {
-                        var entrytoInsert = "<tr><td class='col-md-4'>" + $("#labStudyRadioTime").val() + "</td><td class='col-md-4'>" + $("#labStudyRadio").val() + "</td></tr>";
-                        $(entrytoInsert)
-                            .prependTo(
-                                '#labStudiesRadioEntries table > tbody');
-                        event.preventDefault();
-                        $('#newLabStudyRadioEntry').modal(
-                            'toggle');
->>>>>>> f628f3f Adding Vitals Table
 
-                    });
+									});
 
             $('#medicationsTimeDatePicker').datetimepicker({
                 sideBySide: true
@@ -147,7 +133,7 @@ $(document)
                 var $anchor = $(this);
                 $("#primSurvey").hide();
                 $("#secondarySurvey").hide();
-                $("#medications").hide();
+                //$("#medications").hide();
                 $("#medicationsNew").hide();
                 $("#reviewTimeline").hide();
                 $("#vitals").hide();
@@ -216,7 +202,8 @@ function displayTimeline() {
     }]);
 
     // create a dataset with items
-    // note that months are zero-based in the JavaScript Date object, so month 3 is April
+    // note that months are zero-based in the JavaScript Date object, so month 3
+	// is April
     var items = new vis.DataSet([{
             id: 0,
             group: 0,
@@ -363,9 +350,9 @@ function displayTimeline() {
     var options = {
         // option groupOrder can be a property name or a sort function
         // the sort function must compare two groups and return a value
-        //     > 0 when a > b
-        //     < 0 when a < b
-        //       0 when a == b
+        // > 0 when a > b
+        // < 0 when a < b
+        // 0 when a == b
         groupOrder: function(a, b) {
             return a.value - b.value;
         },
