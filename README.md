@@ -4,6 +4,8 @@
 
 #### Source Code Directory
 `WebContent`: Source directory
+
 `WebContent/home.html`: Home page
+
 `WebContent/index.html`: Screen for value inputs
 
