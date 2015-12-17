@@ -13,6 +13,50 @@ $(document)
 					});
 
 					$('.combobox').combobox()
+					$("#medicationsSave")
+							.on(
+									'click',
+									function(event) {
+										var entrytoInsert = "<tr><td class='col-md-2'>"
+												+ $("#medicationName").val()
+												+ "</td><td class='col-md-1'>"
+												+ $("#dosage").val()
+												+ "</td><td class='col-md-2'>"
+												+ $("#medicationsTime").val()
+												+ "</td><td class='col-md-1'>"
+												+ $("#route").val()
+												+ "</td><td class='col-md-1'>"
+												+ $("#site").val()
+												+ "</td><td class='col-md-1'>"
+												+ $("#md").val()
+												+ "</td><td class='col-md-1'>"
+												+ $("#rninitials").val()
+												+ "</td></tr>";
+										$(entrytoInsert)
+												.prependTo(
+														'#medicationsEntries table > tbody');
+										event.preventDefault();
+										$('#newMedicationsEntry').modal(
+												'toggle');
+
+									});
+					$("#labStudiesSave")
+							.on(
+									'click',
+									function(event) {
+										var entrytoInsert = "<tr><td class='col-md-4'>"
+												+ $("#labStudyTime").val()
+												+ "</td><td class='col-md-4'>"
+												+ $("#labStudy option:selected").text()
+												+ "</td></tr>";
+										$(entrytoInsert)
+												.prependTo(
+														'#labStudiesEntries table > tbody');
+										event.preventDefault();
+										$('#newLabStudyEntry').modal(
+												'toggle');
+
+									});					
 					$("#labStudiesRadioSave")
 							.on(
 									'click',
@@ -20,7 +64,7 @@ $(document)
 										var entrytoInsert = "<tr><td class='col-md-4'>"
 												+ $("#labStudyRadioTime").val()
 												+ "</td><td class='col-md-4'>"
-												+ $("#labStudyRadio").text()
+												+ $("#labStudyRadio option:selected").text()
 												+ "</td></tr>";
 										$(entrytoInsert)
 												.prependTo(

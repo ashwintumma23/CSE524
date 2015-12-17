@@ -132,7 +132,7 @@
                     </li>
                     <li>
                         <a href="#medicationsNew"><img src="images/medicine.png" class="img-thumbnail"></img>
-                            Medications New </a>
+                            Medications </a>
                         <li>
                             <li>
                                 <a href="#ivfluids"><img src="images/secondary.png" class="img-thumbnail"></img> IV Fluids </a>
@@ -966,8 +966,7 @@
                 </div>
             </div>
 
-
-            <div id="medications" style="display: none">
+            <div id="medicationsNew" style="display: none">
                 <h1 class="page-header">Medications</h1>
 
                 <div class="table-responsive">
@@ -1027,6 +1026,26 @@
                 <h1 class="page-header">Medications New</h1>
                 <div class="panel-group" id="accordionMedicationsNew" role="tablist" aria-multiselectable="true">
                     <button class="btn btn-primary" data-toggle="modal" data-target="#newMedicationsEntry">Add Record</button>
+                    <hr>
+                    <div id="medicationsEntries" class="table-responsive">
+
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="col-md-2">Name</th>
+									<th class="col-md-1">Dosage</th>
+									<th class="col-md-2">Time <i class="fa fa-clock-o"></th>
+									<th class="col-md-1">Route</th>
+									<th class="col-md-1">Site</th>
+									<th class="col-md-1">MD</th>
+									<th class="col-md-1">RN Initials</th>
+								</tr>
+							</thead>
+							<tbody>
+							</tbody>
+						</table>
+					</div>
+                    
                     <div class="modal fade" id="newMedicationsEntry" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -1094,7 +1113,7 @@
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">RN Initials</label>
                                             <div class="col-md-6">
-                                                <input id="rn" name="rn" type="text" placeholder="" class="form-control input-md">
+                                                <input id="rninitials" name="rninitials" type="text" placeholder="" class="form-control input-md">
                                             </div>
                                         </div>
 
@@ -1103,7 +1122,7 @@
 
                                 <!-- Modal Footer -->
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" id="newModificationsSave">Save</button>
+                                    <button type="button" class="btn btn-default" id="medicationsSave">Save</button>
                                 </div>
 
                             </div>
@@ -1339,6 +1358,23 @@
                 <h1 class="page-header">Lab Studies</h1>
                 <div class="panel-group" id="accordionLabStudies" role="tablist" aria-multiselectable="true">
                     <button class="btn btn-primary" data-toggle="modal" data-target="#newLabStudyEntry">Add Record</button>
+                    <hr>
+                    <div id="labStudiesEntries" class="table-responsive">
+
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="col-md-4">Time <i class="fa fa-clock-o"></th>
+									<th class="col-md-8">Test</th>
+								</tr>
+							</thead>
+							<tbody>
+
+							</tbody>
+						</table>
+
+					</div>
+                    
                     <div class="modal fade" id="newLabStudyEntry" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
