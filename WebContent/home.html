@@ -1,200 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/image-picker.css" rel="stylesheet">
-    <link rel="stylesheet"
-          href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" />
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" />
 
     <title>EMR Home</title>
 </head>
+
 <body>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
 
-        <div class="navbar-header">
+            <div class="navbar-header">
 
-            <a class="navbar-brand" href=""><i class="fa fa-hospital-o  fa-2x"></i></a>
+                <a class="navbar-brand" href=""><i class="fa fa-hospital-o  fa-2x"></i></a>
 
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse1"
-                    aria-expanded="true">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse1" aria-expanded="true">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <!-- This dropdown is for normal links -->
+            <div class="collapse navbar-collapse navbar-right" id="collapse1" aria-expanded="true">
+                <ul class="nav navbar-nav">
+                    <li><a href=""><i class="fa fa-home fa-lg"></i> Home</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
 
         </div>
+    </nav>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- This dropdown is for normal links -->
-        <div class="collapse navbar-collapse navbar-right" id="collapse1" aria-expanded="true">
-            <ul class="nav navbar-nav">
-                <li><a href=""><i class="fa fa-home fa-lg"></i> Home</a></li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-
-    </div>
-</nav>
-
-<br><br><br>
+    <br>
+    <br>
+    <br>
 
 
-<div class="container" style="text-align: center">
-    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newEMREntry">
-        <i class="fa fa-plus-circle fa-lg"></i> New EMR Entry
-    </button>
+    <div class="container" style="text-align: center">
+        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newEMREntry">
+            <i class="fa fa-plus-circle fa-lg"></i> New EMR Entry
+        </button>
 
-    <!-- Modal -->
-    <div class="modal fade" id="newEMREntry" tabindex="-1" role="dialog"
-         aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <button type="button" class="close"
-                            data-dismiss="modal">
-                        <span aria-hidden="true">&times;</span>
-                        <span class="sr-only">Close</span>
-                    </button>
-                    <h4 class="modal-title" id="newEMRLabel">
+        <!-- Modal -->
+        <div class="modal fade" id="newEMREntry" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">Close</span>
+                        </button>
+                        <h4 class="modal-title" id="newEMRLabel">
                         New EMR Entry
                     </h4>
-                </div>
+                    </div>
 
-                <!-- Modal Body -->
-                <div class="modal-body">
-                    <form class="form-horizontal" role="form">
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="name">Name</label>
-                            <div class="col-md-6">
-                                <input id="name" name="name" type="text" placeholder=""
-                                       class="form-control input-md">
+                    <!-- Modal Body -->
+                    <div class="modal-body">
+                        <form class="form-horizontal" role="form">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="name">Name</label>
+                                <div class="col-md-6">
+                                    <input id="name" name="name" type="text" placeholder="" class="form-control input-md">
+                                </div>
                             </div>
-                        </div>
 
 
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Date of Birth</label>
-                            <div class="col-md-6 date">
-                                <div class="input-group input-append date" id="dobDatePicker">
-                                    <input type="text" class="form-control" id="dob" name="dob"
-                                           placeholder="MM/DD/YYYY"/> <span
-                                        class="input-group-addon add-on"><span
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Date of Birth</label>
+                                <div class="col-md-6 date">
+                                    <div class="input-group input-append date" id="dobDatePicker">
+                                        <input type="text" class="form-control" id="dob" name="dob" placeholder="MM/DD/YYYY" /> <span class="input-group-addon add-on"><span
                                         class="fa fa-calendar"></span></span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Gender</label>
-                            <div class="col-md-6">
-                                <div class="btn-group" data-toggle="buttons" id="gender">
-                                    <label class="btn btn-default">
-                                        <i class="fa fa-male"></i>  <input type="radio" name="gender" value="male" /> Male
-                                    </label>
-                                    <label class="btn btn-default">
-                                      <i class="fa fa-female"></i>  <input type="radio" name="gender" value="female" /> Female
-                                    </label>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Gender</label>
+                                <div class="col-md-6">
+                                    <div class="btn-group" data-toggle="buttons" id="gender">
+                                        <label class="btn btn-default">
+                                            <i class="fa fa-male"></i>
+                                            <input type="radio" name="gender" value="male" /> Male
+                                        </label>
+                                        <label class="btn btn-default">
+                                            <i class="fa fa-female"></i>
+                                            <input type="radio" name="gender" value="female" /> Female
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
 
 
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Arrival Time</label>
-                            <div class="col-md-6 date">
-                                <div class="input-group input-append date"
-                                     id="arrivalTimeDatePicker">
-                                    <input type="text" class="form-control" id="arrivalTime"
-                                           name="arrivalTime" placeholder="MM/DD/YYYY HH:MM AM/PM"/> <span
-                                        class="input-group-addon add-on"><span
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Arrival Time</label>
+                                <div class="col-md-6 date">
+                                    <div class="input-group input-append date" id="arrivalTimeDatePicker">
+                                        <input type="text" class="form-control" id="arrivalTime" name="arrivalTime" placeholder="MM/DD/YYYY HH:MM AM/PM" /> <span class="input-group-addon add-on"><span
                                         class="fa fa-calendar"></span></span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Select Basic -->
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="arrivalMode">Arrival
-                                Mode</label>
-                            <div class="col-md-6">
-                                <select id="arrivalMode"
-                                        class="image-picker show-labels show-html">
-                                    <option data-img-src="images/ambulance.png" value="ambulance">Ambulance</option>
-                                    <option data-img-src="images/car.png" value="car">Car</option>
-                                    <option data-img-src="images/walking.png" value="walkin">Walk-in</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <!-- Appended Input-->
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" for="weight">Weight</label>
-                            <div class="col-md-6">
-                                <div class="input-group">
-                                    <input id="weight" name="weight" class="form-control"
-                                           placeholder="" type="text"> <span
-                                        class="input-group-addon">Kgs.</span>
-                                </div>
-
-                            </div>
-                        </div>
-                        <!-- Multiple Checkboxes (inline) -->
-                        <div class="form-group">
-                            <label class="col-md-3 control-label" >Emergency
-                                Level</label>
-                            <div class="col-md-6" id="emergenceyLevel">
-                                <label class="radio-inline text-danger">
-                                <input type="radio" name="emergencyLevel" value="Level 1">Level 1</label>
-
-                                <label class="radio-inline text-warning">
-                                <input type="radio" name="emergencyLevel"
-                                      value="Level 2">Level 2</label>
-
-                                <label class="radio-inline text-info" >
-                                <input type="radio" name="emergencyLevel"
-                                       value="Level 3">Level 3</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Tetanus</label>
-                            <div class="col-md-6">
-                                <div class="material-switch pull-left">
-                                    <input id="tetanus" name="tetanus" type="checkbox" /> <label for="tetanus" class="label-success"></label>
+                            <!-- Select Basic -->
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="arrivalMode">Arrival Mode
+                                </label>
+                                <div class="col-md-6">
+                                    <select id="arrivalMode" class="image-picker show-labels show-html">
+                                        <option data-img-src="images/ambulance.png" value="ambulance">Ambulance</option>
+                                        <option data-img-src="images/car.png" value="car">Car</option>
+                                        <option data-img-src="images/walking.png" value="walkin">Walk-in</option>
+                                    </select>
                                 </div>
                             </div>
-                        </div>
-                    </form>
-                </div>
-                <!-- Modal Footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default"
-                            data-dismiss="modal">
-                        Close
-                    </button>
-                    <button type="button" class="btn btn-primary" id="create">
-                        Create
-                    </button>
+
+                            <!-- Appended Input-->
+                            <div class="form-group">
+                                <label class="col-md-3 control-label" for="weight">Weight</label>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        <input id="weight" name="weight" class="form-control" placeholder="" type="text"> <span class="input-group-addon">Kgs.</span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- Multiple Checkboxes (inline) -->
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Emergency Level
+                                </label>
+                                <div class="col-md-6" id="emergenceyLevel">
+                                    <label class="radio-inline text-danger">
+                                        <input type="radio" name="emergencyLevel" value="Level 1">Level 1</label>
+
+                                    <label class="radio-inline text-warning">
+                                        <input type="radio" name="emergencyLevel" value="Level 2">Level 2</label>
+
+                                    <label class="radio-inline text-info">
+                                        <input type="radio" name="emergencyLevel" value="Level 3">Level 3</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Tetanus</label>
+                                <div class="col-md-6">
+                                    <div class="material-switch pull-left">
+                                        <input id="tetanus" name="tetanus" type="checkbox" />
+                                        <label for="tetanus" class="label-success"></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            Close
+                        </button>
+                        <button type="button" class="btn btn-primary" id="create">
+                            Create
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 
-</div>
-
-<script src="js/jquery-1.11.0.min.js"></script>
-<script src="js/script.js"></script>
-<script src="js/main.js"></script>
-<script src="js/image-picker.min.js"></script>
-<script
-        src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
-<script
-        src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/image-picker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+    <script src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
 
 </body>
+
 </html>
