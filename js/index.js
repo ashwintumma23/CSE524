@@ -41,14 +41,32 @@ $(document)
 												'toggle');
 
 									});
+					
+					$("#otherTextBox").hide();
+					$("#otherRadioTextBox").hide();
+					
+					$("#labStudy").change(function() {
+						  if($("#labStudy").val() != "0")
+						         $("#otherTextBox").hide();
+						  else if($("#labStudy").val() == "0")
+						         $("#otherTextBox").show();
+					});
+
+					
 					$("#labStudiesSave")
 							.on(
 									'click',
 									function(event) {
+										var labStudySelection = "";
+										if($("#labStudy").val() == "0")
+											labStudySelection = "Other: " + $("#otherTextBox").val();
+										else
+											labStudySelection = $("#labStudy option:selected").text();
+
 										var entrytoInsert = "<tr><td class='col-md-4'>"
 												+ $("#labStudyTime").val()
 												+ "</td><td class='col-md-4'>"
-												+ $("#labStudy option:selected").text()
+												+ labStudySelection
 												+ "</td></tr>";
 										$(entrytoInsert)
 												.prependTo(
@@ -57,15 +75,30 @@ $(document)
 										$('#newLabStudyEntry').modal(
 												'toggle');
 
-									});					
+									});
+					
+				
+					$("#labStudyRadio").change(function() {
+						  if($("#labStudyRadio").val() != "0")
+						         $("#otherRadioTextBox").hide();
+						  else if($("#labStudyRadio").val() == "0")
+						         $("#otherRadioTextBox").show();
+					});
+					
 					$("#labStudiesRadioSave")
 							.on(
 									'click',
 									function(event) {
+										var labStudyRadioSelection = "";
+										if($("#labStudyRadio").val() == "0")
+											labStudyRadioSelection = "Other: " + $("#otherRadioTextBox").val();
+										else
+											labStudyRadioSelection = $("#labStudyRadio option:selected").text();
+										
 										var entrytoInsert = "<tr><td class='col-md-4'>"
 												+ $("#labStudyRadioTime").val()
 												+ "</td><td class='col-md-4'>"
-												+ $("#labStudyRadio option:selected").text()
+												+ labStudyRadioSelection
 												+ "</td></tr>";
 										$(entrytoInsert)
 												.prependTo(
