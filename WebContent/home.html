@@ -2,190 +2,335 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/image-picker.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" />
-
-    <title>EMR Home</title>
+<meta charset="UTF-8">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/image-picker.css" rel="stylesheet">
+<script src="js/jquery-1.11.0.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" />
+<link href="css/bootstrap-multiselect.css" rel="stylesheet">
+<script src="js/bootstrap-multiselect.js"></script>
+<title>EMR Home</title>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
 
-            <div class="navbar-header">
+			<div class="navbar-header">
 
-                <a class="navbar-brand" href=""><i class="fa fa-hospital-o  fa-2x"></i></a>
+				<a class="navbar-brand" href=""><i
+					class="fa fa-hospital-o  fa-2x"></i></a>
 
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse1" aria-expanded="true">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#collapse1" aria-expanded="true">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
 
-            </div>
+			</div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <!-- This dropdown is for normal links -->
-            <div class="collapse navbar-collapse navbar-right" id="collapse1" aria-expanded="true">
-                <ul class="nav navbar-nav">
-                    <li><a href=""><i class="fa fa-home fa-lg"></i> Home</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<!-- This dropdown is for normal links -->
+			<div class="collapse navbar-collapse navbar-right" id="collapse1"
+				aria-expanded="true">
+				<ul class="nav navbar-nav">
+					<li><a href=""><i class="fa fa-home fa-lg"></i> Home</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
 
-        </div>
-    </nav>
+		</div>
+	</nav>
 
-    <br>
-    <br>
-    <br>
-
-
-    <div class="container" style="text-align: center">
-        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newEMREntry">
-            <i class="fa fa-plus-circle fa-lg"></i> New EMR Entry
-        </button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="newEMREntry" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">
-                            <span aria-hidden="true">&times;</span>
-                            <span class="sr-only">Close</span>
-                        </button>
-                        <h4 class="modal-title" id="newEMRLabel">
-                        New EMR Entry
-                    </h4>
-                    </div>
-
-                    <!-- Modal Body -->
-                    <div class="modal-body">
-                        <form class="form-horizontal" role="form">
-                            <div class="form-group">
-                                <label class="col-md-3 control-label" for="name">Name</label>
-                                <div class="col-md-6">
-                                    <input id="name" name="name" type="text" placeholder="" class="form-control input-md">
-                                </div>
-                            </div>
+	<br>
+	<br>
+	<br>
 
 
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">Date of Birth</label>
-                                <div class="col-md-6 date">
-                                    <div class="input-group input-append date" id="dobDatePicker">
-                                        <input type="text" class="form-control" id="dob" name="dob" placeholder="MM/DD/YYYY" /> <span class="input-group-addon add-on"><span
-                                        class="fa fa-calendar"></span></span>
-                                    </div>
-                                </div>
-                            </div>
+	<div class="container" style="text-align: center">
+		<button class="btn btn-primary btn-lg" data-toggle="modal"
+			data-target="#newEMREntry">
+			<i class="fa fa-plus-circle fa-lg"></i> New EMR Entry
+		</button>
 
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">Gender</label>
-                                <div class="col-md-6">
-                                    <div class="btn-group" data-toggle="buttons" id="gender">
-                                        <label class="btn btn-default">
-                                            <i class="fa fa-male"></i>
-                                            <input type="radio" name="gender" value="male" /> Male
-                                        </label>
-                                        <label class="btn btn-default">
-                                            <i class="fa fa-female"></i>
-                                            <input type="radio" name="gender" value="female" /> Female
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
+		<!-- Modal -->
+		<div class="modal fade" id="newEMREntry" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<!-- Modal Header -->
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">
+							<span aria-hidden="true">&times;</span> <span class="sr-only">Close</span>
+						</button>
+						<h4 class="modal-title" id="newEMRLabel">New EMR Entry</h4>
+					</div>
+
+					<!-- Modal Body -->
+					<div class="modal-body">
+						<form class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="col-md-3 control-label" for="name">Name</label>
+								<div class="col-md-6">
+									<input id="name" name="name" type="text" placeholder=""
+										class="form-control input-md">
+								</div>
+							</div>
+
+
+							<div class="form-group">
+								<label class="col-md-3 control-label">Date of Birth</label>
+								<div class="col-md-6 date">
+									<div class="input-group input-append date" id="dobDatePicker">
+										<input type="text" class="form-control" id="dob" name="dob"
+											placeholder="MM/DD/YYYY" /> <span
+											class="input-group-addon add-on"><span
+											class="fa fa-calendar"></span></span>
+									</div>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-md-3 control-label">Gender</label>
+								<div class="col-md-6">
+									<div class="btn-group" data-toggle="buttons" id="gender">
+										<label class="btn btn-default"> <i class="fa fa-male"></i>
+											<input type="radio" name="gender" value="male" /> Male
+										</label> <label class="btn btn-default"> <i
+											class="fa fa-female"></i> <input type="radio" name="gender"
+											value="female" /> Female
+										</label>
+									</div>
+								</div>
+							</div>
 
 
 
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">Arrival Time</label>
-                                <div class="col-md-6 date">
-                                    <div class="input-group input-append date" id="arrivalTimeDatePicker">
-                                        <input type="text" class="form-control" id="arrivalTime" name="arrivalTime" placeholder="MM/DD/YYYY HH:MM AM/PM" /> <span class="input-group-addon add-on"><span
-                                        class="fa fa-calendar"></span></span>
-                                    </div>
-                                </div>
-                            </div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">Arrival Time</label>
+								<div class="col-md-6 date">
+									<div class="input-group input-append date"
+										id="arrivalTimeDatePicker">
+										<input type="text" class="form-control" id="arrivalTime"
+											name="arrivalTime" placeholder="MM/DD/YYYY HH:MM AM/PM" /> <span
+											class="input-group-addon add-on"><span
+											class="fa fa-calendar"></span></span>
+									</div>
+								</div>
+							</div>
 
-                            <!-- Select Basic -->
-                            <div class="form-group">
-                                <label class="col-md-3 control-label" for="arrivalMode">Arrival Mode
-                                </label>
-                                <div class="col-md-6">
-                                    <select id="arrivalMode" class="image-picker show-labels show-html">
-                                        <option data-img-src="images/ambulance.png" value="ambulance">Ambulance</option>
-                                        <option data-img-src="images/car.png" value="car">Car</option>
-                                        <option data-img-src="images/walking.png" value="walkin">Walk-in</option>
-                                    </select>
-                                </div>
-                            </div>
+							<!-- Select Basic -->
+							<div class="form-group">
+								<label class="col-md-3 control-label" for="arrivalMode">Arrival
+									Mode </label>
+								<div class="col-md-6">
+									<select id="arrivalMode"
+										class="image-picker show-labels show-html">
+										<option data-img-src="images/ambulance.png" value="ambulance">Ambulance</option>
+										<option data-img-src="images/car.png" value="car">Car</option>
+										<option data-img-src="images/walking.png" value="walkin">Walk-in</option>
+									</select>
+								</div>
+							</div>
 
-                            <!-- Appended Input-->
-                            <div class="form-group">
-                                <label class="col-md-3 control-label" for="weight">Weight</label>
-                                <div class="col-md-6">
-                                    <div class="input-group">
-                                        <input id="weight" name="weight" class="form-control" placeholder="" type="text"> <span class="input-group-addon">Kgs.</span>
-                                    </div>
+							<!-- Appended Input-->
+							<div class="form-group">
+								<label class="col-md-3 control-label" for="weight">Weight</label>
+								<div class="col-md-6">
+									<div class="input-group">
+										<input id="weight" name="weight" class="form-control"
+											placeholder="" type="text"> <span
+											class="input-group-addon">Kgs.</span>
+									</div>
 
-                                </div>
-                            </div>
-                            <!-- Multiple Checkboxes (inline) -->
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">Emergency Level
-                                </label>
-                                <div class="col-md-6" id="emergenceyLevel">
-                                    <label class="radio-inline text-danger">
-                                        <input type="radio" name="emergencyLevel" value="Level 1">Level 1</label>
+								</div>
+							</div>
+							<!-- Multiple Checkboxes (inline) -->
+							<div class="form-group">
+								<label class="col-md-3 control-label">Emergency Level </label>
+								<div class="col-md-6" id="emergenceyLevel">
+									<label class="radio-inline text-danger"> <input
+										type="radio" name="emergencyLevel" value="Level 1">Level
+										1
+									</label> <label class="radio-inline text-warning"> <input
+										type="radio" name="emergencyLevel" value="Level 2">Level
+										2
+									</label> <label class="radio-inline text-info"> <input
+										type="radio" name="emergencyLevel" value="Level 3">Level
+										3
+									</label>
+								</div>
+							</div>
 
-                                    <label class="radio-inline text-warning">
-                                        <input type="radio" name="emergencyLevel" value="Level 2">Level 2</label>
+							<div class="form-group">
+								<label class="col-md-3 control-label">Tetanus</label>
+								<div class="col-md-6">
+									<div class="material-switch pull-left">
+										<input id="tetanus" name="tetanus" type="checkbox" /> <label
+											for="tetanus" class="label-success"></label>
+									</div>
+								</div>
+							</div>
 
-                                    <label class="radio-inline text-info">
-                                        <input type="radio" name="emergencyLevel" value="Level 3">Level 3</label>
-                                </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label class="col-md-3 control-label">Tetanus</label>
-                                <div class="col-md-6">
-                                    <div class="material-switch pull-left">
-                                        <input id="tetanus" name="tetanus" type="checkbox" />
-                                        <label for="tetanus" class="label-success"></label>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <!-- Modal Footer -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">
-                            Close
-                        </button>
-                        <button type="button" class="btn btn-primary" id="create">
-                            Create
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+							<button type="button" class="btn btn-primary"
+								data-toggle="collapse" data-target="#test">
+								<i class="fa fa-plus-circle fa-lg"></i> Additional Info
+							</button>
+							<br></br>
+							<div id="test" class="collapse">
+								<div class="form-group">
+									<h4 class="modal-title" id="pschyosocial">PSYCHOSOCIAL-
+										Family/Significant other</h4>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="name">Notified</label>
+									<div class="col-md-6">
+										<input id="notified" name="notified" type="text"
+											placeholder="" class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="name">Phone</label>
+									<div class="col-md-2">
+										<input id="phone1" name="phone1" type="text" placeholder=""
+											class="form-control input-md">
+									</div>
+									<div class="col-md-2">
+										<input id="phone2" name="phone2" type="text" placeholder=""
+											class="form-control input-md">
+									</div>
+									<div class="col-md-2">
+										<input id="phone3" name="phone3" type="text" placeholder=""
+											class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="name">Relationship</label>
+									<div class="col-md-6">
+										<input id="relationship" name="relationship" type="text"
+											placeholder="" class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label" for="name">By
+										Whom</label>
+									<div class="col-md-6">
+										<input id="bywhom" name="bywhom" type="text" placeholder=""
+											class="form-control input-md">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label">Time</label>
+									<div class="col-md-6 date">
+										<div class="input-group input-append date"
+											id="pschyosocialTimeDatePicker">
+											<input type="text" class="form-control" id="pschyosocialTime"
+												name="pschyosocialTime" placeholder="MM/DD/YYYY HH:MM AM/PM" />
+											<span class="input-group-addon add-on"><span
+												class="fa fa-calendar"></span></span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label">Unable to reach</label>
+									<div class="col-md-6">
+										<div class="material-switch pull-left">
+											<input id="unabletoreach" name="unabletoreach"
+												type="checkbox" /> <label for="unabletoreach"
+												class="label-success"></label>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label">Mechanism of
+										Injury</label>
+									<div class="col-md-6">
+										<select id="mechanism-of-injury" multiple="multiple">
+											<option id="auto">Auto/Auto</option>
+											<option id="pedestrian">Auto/Pedestrian</option>
+											<option id="gunshot">Gunshot Wound</option>
+											<option id="stabbing">Stabbing</option>
+											<option id="fall">Fall/Height</option>
+											<option id="altercation">Altercation</option>
+											<option id="ejection">Ejection</option>
+											<option id="crush">Crush</option>
+											<option id="burn">Burn</option>
+											<option id="industrial">Industrial</option>
+											<option id="chemical">Chemical</option>
+											<option id="highvelocity">High velocity greater than
+												20 mph</option>
+											<option id="lowvelocity">Low velocity less than 20
+												mph</option>
+											<option id="unknown">Unknown</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label">Time of Injury</label>
+									<div class="col-md-6 date">
+										<div class="input-group input-append date"
+											id="injuryTimeDatePicker">
+											<input type="text" class="form-control" id="injuryTime"
+												name="injuryTime" placeholder="MM/DD/YYYY HH:MM AM/PM" /> <span
+												class="input-group-addon add-on"><span
+												class="fa fa-calendar"></span></span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label">If Automobile accident, was victim</label>
+									<div class="col-md-6">
+										<select id="was-victim" multiple="multiple">
+											<option id="driver">Driver</option>
+											<option id="frontseatpassenger">Front seat passenger</option>
+											<option id="backseatpassenger">Back seat passenger</option>
+											<option id="seatbelton">Seat belt on</option>
+											<option id="carseat">Car Seat</option>
+											<option id="airbagdeployed">Air bag deployed</option>
+											<option id="prolongedextrication">Prolonged Extrication</option>
+											<option id="unknown">Unknown</option>
+											<option id="sportinjuries">Sport Injuries</option>
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-3 control-label">Was the victim wearing</label>
+									<div class="col-md-6">
+										<select id="victim-wearing" multiple="multiple">
+											<option id="helmet">Helmet</option>
+											<option id="nohelmet">No Helmet</option>
+											<option id="unknown">Unknown</option>
+											<option id="protectivepads">Protective Pads</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+					<!-- Modal Footer -->
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">
+							Close</button>
+						<button type="button" class="btn btn-primary" id="create">
+							Create</button>
+					</div>
+				</div>
+			</div>
+		</div>
 
-    </div>
+	</div>
 
-    <script src="js/jquery-1.11.0.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/image-picker.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
-    <script src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/image-picker.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+	<script
+		src="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
 
 </body>
 

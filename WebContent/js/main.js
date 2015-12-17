@@ -12,6 +12,19 @@ $(document)
                 .datetimepicker({
                     format: 'MM/DD/YYYY'
                 });
+            $('#pschyosocialTimeDatePicker')
+            .datetimepicker({
+                sideBySide: true
+            });
+            $('#injuryTimeDatePicker')
+            .datetimepicker({
+                sideBySide: true
+            });
+            
+            $('#mechanism-of-injury').multiselect();
+            $('#was-victim').multiselect();
+            $('#victim-wearing').multiselect();
+            
             $("#arrivalMode").imagepicker();
             $("#create").on('click', function(event) {
                 sessionStorage.setItem("name", $("#name").val());
