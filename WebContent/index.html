@@ -8,7 +8,7 @@
 <link rel="stylesheet"
 	href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" />
 <link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.10.0/vis.min.css" />
+	href="css/vis.min.css" />
 <script
 	src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.4/handlebars.min.js"></script>
 <script id="item-template" type="text/x-handlebars-template">
@@ -132,7 +132,7 @@
 							src="images/secondary.png" class="img-thumbnail"></img> Secondary
 							Survey </a></li>
 					<li><a href="#vitals"><img src="images/primary.png"
-							class="img-thumbnail"></img> Vitals </a></li>
+							class="img-thumbnail"></img> Vitals <span class="badge" style="margin-top:10px">2</span></a></li>
 					<li><a href="#medicationsNew"><img
 							src="images/medicine.png" class="img-thumbnail"></img>
 							Medications </a>
@@ -1509,28 +1509,31 @@
 					<h3 class="text-center">Overview</h3>
 					<div id="overview" style="margin: 10px"></div>
 				</div>
-				<hr>
+				<!-- <hr>
 				<div class="text-center">
 					<button id="overviewToggle" class="btn btn-success collapsed"
 						data-toggle="collapse" data-target="#detailedOverview">Expand
 						+</button>
-				</div>
+				</div> -->
 				<hr>
-				<div id="detailedOverview" class="collapse">
-					<div class="row">
+				<div id="detailedOverview">
+					<div class="row vitals" style="display:none">
 						<div id="bloodPressure"
 							style="display: block; position: relative; margin-top: 20px"
 							class="col-lg-9 col-md-9 col-sm-9 col-xs-12"></div>
+							<hr>
 					</div>
-					<hr>
-					<div class="row">
+					
+					<div class="row vitals" style="display:none">
 						<h3 class="text-center">Vitals</h3>
 						<div id="vitalsReview" style="margin: 10px"></div>
+						<hr>
 					</div>
-					<hr>
-					<div class="row">
+					
+					<div class="row fluids" style="display:none">
 						<h3 class="text-center">Fluids</h3>
 						<div id="fluidsReview" style="margin: 10px"></div>
+						<hr>
 					</div>
 
 				</div>

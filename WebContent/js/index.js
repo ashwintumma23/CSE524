@@ -398,8 +398,35 @@ function displayTimeline() {
     timeline.setOptions(options);
     timeline.setGroups(groups);
     timeline.setItems(items);
+   timeline.on('click', function (properties) {
+        logEvent('click', properties);
+      });
 
+    
+
+     
 };
+function logEvent(event, properties) {
+	  var sections = ['Primary Survey', 'Secondary Survey','Vitals','Fluids', 'Medications', 'Procedures'];
+	   
+    var msg = document.createElement('div');
+    var $anchor = $(this);
+    if($.inArray(properties.event.firstTarget.innerHTML, sections)){
+    $(".vitals").hide(1000);
+    $(".fluids").hide(1000);
+    if(properties.event.firstTarget.innerHTML == 'Vitals'){
+    	$(".vitals").show(1000);
+    }
+    if(properties.event.firstTarget.innerHTML == 'Fluids'){
+    	$(".fluids").show(1000);
+    }
+    }
+    
+    /*event.preventDefault();
+    console.log('event=' + JSON.stringify(event) + ', ' +
+        'properties=' + JSON.stringify(properties));*/
+   
+  }
 
 function displayFluids() {
     var source = document.getElementById('item-template').innerHTML;
