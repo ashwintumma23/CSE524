@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Timeline | Group example</title>
+
+<style>
+body, html {
+	font-family: arial, sans-serif;
+	font-size: 11pt;
+}
+
+.vis-item.green {
+	background-color: greenyellow;
+	border-color: green;
+}
+
+.vis-item.orange {
+	background-color: gold;
+	border-color: orange;
+}
+
+#visualization {
+	box-sizing: border-box;
+	width: 100%;
+	height: 300px;
+}
+</style>
+<script src="js/jquery-1.11.0.min.js"></script>
+<!-- note: moment.js must be loaded before vis.js, else vis.js uses its embedded version of moment.js -->
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.10.0/vis.min.css" />
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.10.0/vis.min.js"></script>
+</head>
+<body>
+
+	<div id="visualization"></div>
+
+	
+<script>
+  var groups = new vis.DataSet([
+    {id: 0, content: 'Primary Survey', value: 1},
+    {id: 1, content: 'Secondary Survey', value: 2},
+    {id: 2, content: 'Vitals', value: 3},
+    {id: 3, content: 'Fluids', value: 4},
+    {id: 4, content: 'Medications', value: 5},
+    {id: 5, content: 'Procedures', value: 6}
+  ]);
+
+  // create a dataset with items
+  // note that months are zero-based in the JavaScript Date object, so month 3 is April
+  var items = new vis.DataSet([
+    {id: 0, group: 0, content: 'Primary Survey', start: new Date(2015, 12, 14,12,40),type: 'box'},
+    {id: 1, group: 1, content: 'Secondary Survey', start: new Date(2015, 12, 14,12,45),type: 'box'},
+    
+    {id: 2, group: 2, content: 'Reading 1', start: new Date(2015, 12, 14,12,42),type: 'point'},
+    {id: 3, group: 2, content: 'Reading 2', start: new Date(2015, 12, 14,12,47),type: 'point'},
+    {id: 4, group: 2, content: 'Reading 3', start: new Date(2015, 12, 14,12,52),type: 'point'},
+    {id: 5, group: 2, content: 'Reading 4', start: new Date(2015, 12, 14,12,57),type: 'point'},
+    {id: 6, group: 2, content: 'Reading 5', start: new Date(2015, 12, 14,13,02),type: 'point'},
+    {id: 7, group: 2, content: 'Reading 6', start: new Date(2015, 12, 14,13,07),type: 'point'},
+    {id: 8, group: 2, content: 'Reading 7', start: new Date(2015, 12, 14,13,12),type: 'point'},
+    {id: 9, group: 2, content: 'Reading 8', start: new Date(2015, 12, 14,13,19),type: 'point'},
+    
+    {id: 10, group: 3, content: 'Fluid 1 Infused', start: new Date(2015, 12, 14,12,26),type: 'box'},
+    {id: 11, group: 3, content: 'Fluid 2 Infused', start: new Date(2015, 12, 14,13,26),type: 'box'},
+    {id: 12, group: 3, content: 'Fluid 3 Infused', start: new Date(2015, 12, 14,14,26),type: 'box'},
+    {id: 13, group: 3, content: 'Fluid 4 Infused', start: new Date(2015, 12, 14,15,26),type: 'box'},
+    
+    {id: 14, group: 4, content: 'A', start: new Date(2015, 12, 14,12,35),type: 'box'},
+    {id: 15, group: 4, content: 'B', start: new Date(2015, 12, 14,13,02),type: 'box'},
+    {id: 16, group: 4, content: 'C', start: new Date(2015, 12, 14,13,32),type: 'box'},
+    {id: 17, group: 5, content: 'Nastrogastic', start: new Date(2015, 12,14,13,16),type: 'box'}
+  ]);
+
+  // create visualization
+  var container = document.getElementById('visualization');
+  var options = {
+    // option groupOrder can be a property name or a sort function
+    // the sort function must compare two groups and return a value
+    //     > 0 when a > b
+    //     < 0 when a < b
+    //       0 when a == b
+    groupOrder: function (a, b) {
+      return a.value - b.value;
+    }
+  };
+
+  var timeline = new vis.Timeline(container);
+  timeline.setOptions(options);
+  timeline.setGroups(groups);
+  timeline.setItems(items);
+
+</script>
+</body>
+</html>
