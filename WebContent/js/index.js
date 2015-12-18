@@ -108,6 +108,50 @@ $(document)
 												'toggle');
 
 									});
+					
+					$("#procedureSelect").change(function() {
+						  if($("#procedureSelect").val() != "Other")
+						         $("#otherProcedures").hide();
+						  else if($("#procedureSelect").val() == "Other")
+						         $("#otherProcedures").show();
+					});
+					
+					$("#procedureSave")
+							.on(
+									'click',
+									function(event) {
+										var procedureSelection = "";
+										if($("#procedureSelect").val() == "Other")
+											procedureSelection = $("#procedureSelect").val();
+										else
+											procedureSelection = $("#procedureSelect option:selected").text();
+										
+										var showWarn = "";
+										if(procedureSelection =="" || $("#procedureTime").val()==""||
+												$("#tubeTypeBox").val()==""||$("#sizeBox").val()==""||
+												$("#colorDrainage").val()==""||$("#procedureAmount").val()==""||
+												$("#patientResponse").val()==""||$("#procedureInitials").val()==""){
+											showWarn = "<i class='fa fa-exclamation-circle'></i>";
+										}
+										var entrytoInsert = 
+										"<tr><td class='col-md-2'>"+showWarn+" " +procedureSelection+
+										"</td><td class='col-md-2'>"+$('#procedureTime').val()+
+										"</td><td class='col-md-1'>"+$('#tubeTypeBox').val()+
+										"</td><td class='col-md-1'>"+$('#sizeBox').val()+
+										"</td><td class='col-md-1'>"+$('#colorDrainage').val()+
+										"</td><td class='col-md-1'>"+$('#procedureAmount').val()+
+										"</td><td class='col-md-2'>"+$('#patientResponse').val()+
+										"</td><td class='col-md-1'>"+$('#procedureInitials').val()+
+										"</td></tr>";
+									
+										$(entrytoInsert)
+												.prependTo(
+														'#proceduresEntries table > tbody');
+										event.preventDefault();
+										$('#proceduresEntryModal').modal(
+												'toggle');
+
+									});
 
             $('#medicationsTimeDatePicker').datetimepicker({
                 sideBySide: true
@@ -116,39 +160,11 @@ $(document)
             $('[data-toggle=offcanvas]').click(function() {
                 $('.row-offcanvas').toggleClass('active');
             });
-            var i = 1;
-            $("#add_row")
-                .click(
-                    function() {
-                        $('#addr' + i)
-                            .html(
-                                "<td>" + (i + 1) + "</td><td><input name='dosageName" + i + "' type='text' placeholder='Name and Dosage' class='form-control input-md'  /></td><td><input  name='time" + i + "' type='text' placeholder='Time'  class='form-control input-md'></td><td><input  name='route" + i + "' type='text' placeholder='Route'  class='form-control input-md'></td><td><input  name='site" + i + "' type='text' placeholder='Site'  class='form-control input-md'></td><td><input  name='md" + i + "' type='text' placeholder='MD'  class='form-control input-md'></td><td><input  name='rnintials" + i + "' type='text' placeholder='RN Initials'  class='form-control input-md'></td>");
-
-                        $('#tab_logic').append(
-                            '<tr id="addr' + (i + 1) + '"></tr>');
-                        i++;
-                    });
-            $("#delete_row").click(function() {
-                if (i > 1) {
-                    $("#addr" + (i - 1)).html('');
-                    i--;
-                }
+            $('#procedureTime').datetimepicker({
             });
-
-            $('#overviewToggle')
-                .click(
-                    function() {
-                        $(this)
-                            .text(
-                                function(i, old) {
-                                    return old == 'Expand +' ? 'Collapse -' : 'Expand +';
-                                });
-                    });
-
             $('#traumaAct').datetimepicker({
                 sideBySide: true
             });
-
             $('#traumaTeam').datetimepicker({
                 sideBySide: true
             });
@@ -160,6 +176,7 @@ $(document)
             displayBp();
             displayFluids();
             displayVitals();
+            displayProcedures();
 
             tabs = $('ul.tabNavigate li a');
             tabs.bind('click', function(event) {
@@ -169,6 +186,7 @@ $(document)
                 //$("#medications").hide();
                 $("#medicationsNew").hide();
                 $("#reviewTimeline").hide();
+                $("#procedures").hide();
                 $("#vitals").hide();
                 $("#ivfluids").hide();
                 $("#labStudies").hide();
@@ -414,8 +432,12 @@ function logEvent(event, properties) {
     if($.inArray(properties.event.firstTarget.innerHTML, sections)){
     $(".vitals").hide(1000);
     $(".fluids").hide(1000);
+    $(".procedure").hide(1000);
     if(properties.event.firstTarget.innerHTML == 'Vitals'){
     	$(".vitals").show(1000);
+    }
+    if(properties.event.firstTarget.innerHTML == 'Procedures'){
+    	$(".procedure").show(1000);
     }
     if(properties.event.firstTarget.innerHTML == 'Fluids'){
     	$(".fluids").show(1000);
@@ -475,6 +497,54 @@ function displayFluids() {
     var options = {
         start: '2015-12-14 12:00',
         end: '2015-12-14 16:00',
+        editable: false,
+        template: template
+    };
+
+    // Create a Timeline
+    var timeline = new vis.Timeline(container, items, options);
+}
+
+
+function displayProcedures() {
+    var source = document.getElementById('procedure-template').innerHTML;
+    var template = Handlebars
+        .compile(document.getElementById('procedure-template').innerHTML);
+
+    // DOM element where the Timeline will be attached
+    var container = document.getElementById('procedureReview');
+
+    // Create a DataSet (allows two way data-binding)
+    var items = new vis.DataSet([
+        // round of 16
+        {
+            name: 'Nastrogastic',
+            amount: '20ml',
+            tube:'A,8mm',
+            color:'Yellow',
+            description: '2015-12-14 12:26',
+            start: '2015-12-14 12:26',
+            className: 'magenta'
+        }, {
+            name: 'Oralgastic </i>',
+            amount: '100ml',
+            tube:'C,8mm',
+            color:'Orange',
+            description: '2015-12-14 13:26',
+            start: '2015-12-14 13:26',
+            className: 'magenta'
+        }
+    ]);
+
+    // Configuration for the Timeline
+    var options = {
+        // specify a template for the items
+        template: template
+    };
+
+    var options = {
+        start: '2015-12-14 12:00',
+        end: '2015-12-14 14:00',
         editable: false,
         template: template
     };

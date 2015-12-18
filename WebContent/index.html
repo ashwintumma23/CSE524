@@ -28,6 +28,33 @@
             </tr>
         </table>
     </script>
+    <script id="procedure-template" type="text/x-handlebars-template">
+        <table>
+            <tr>
+                <td colspan="4" class="description">{{description}}</td>
+            </tr>
+            <tr>
+				<td>Procedure : <b>{{name}}</b>
+                </td>                 
+
+                <td>Tube : <b>{{tube}}</b>
+                </td>
+
+                
+
+                
+            </tr>
+             <tr>
+				<td>Amount : <b>{{amount}}</b>
+                </td>                 
+
+                <td>Color Drainage : <b>{{color}}</b>
+                </td>
+
+                
+            </tr>
+        </table>
+    </script>
 
 <script id="vitals-template" type="text/x-handlebars-template">
         <table>
@@ -139,6 +166,8 @@
 					</li>
 					<li><a href="#ivfluids"><img src="images/secondary.png"
 							class="img-thumbnail"></img> IV Fluids </a></li>
+					<li><a href="#procedures"><img src="images/procedures.png"
+							class="img-thumbnail"></img> Procedures <span class="badge" style="margin-top:10px;background-color: #F0AD4E;"><i class="fa fa-exclamation-triangle"></i></span></a></li>
 					
 					<li><a href="#labStudies"><img src="images/labtests.png"
 							class="img-thumbnail"></img> Lab Studies </a></li>
@@ -1538,6 +1567,11 @@
 						<hr>
 					</div>
 
+					<div class="row procedure" style="display:none">
+						<h3 class="text-center">Procedures</h3>
+						<div id="procedureReview" style="margin: 10px"></div>
+						<hr>
+					</div>
 				</div>
 
 			</div>
@@ -1738,6 +1772,149 @@
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"
 									id="labStudiesRadioSave">Save</button>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="procedures" style="display: none">
+				<h1 class="page-header">Procedures</h1>
+				<div class="panel-group" id="accordionProcedures"
+					role="tablist" aria-multiselectable="true">
+					<button class="btn btn-primary" data-toggle="modal"
+						data-target="#proceduresEntryModal">Add Procedure</button>
+					<hr>
+					<div id="proceduresEntries" class="table-responsive">
+
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th class="col-md-2">Procedure</th>
+									<th class="col-md-2">Time <i class="fa fa-clock-o"></th>
+									<th class="col-md-1">Tube</th>
+									<th class="col-md-1">Size</th>
+									<th class="col-md-1">Color Drainage</th>
+									<th class="col-md-1">Amount</th>
+									<th class="col-md-2">Patient Response</th>
+									<th class="col-md-1">Initails</th>
+									
+								</tr>
+							</thead>
+							<tbody><tr><td class="col-md-2"><i class="fa fa-exclamation-circle"></i> Pericardial Centesis</td><td class="col-md-2">12/18/2015 1:26 AM</td><td class="col-md-1">C</td><td class="col-md-1">12mm</td><td class="col-md-1"></td><td class="col-md-1">20ml</td><td class="col-md-2">Positive</td><td class="col-md-1">NA</td></tr><tr><td class="col-md-2"> Peritonial Lavage</td><td class="col-md-2">12/18/2015 1:24 AM</td><td class="col-md-1">A</td><td class="col-md-1">8mm</td><td class="col-md-1">Yellow</td><td class="col-md-1">20ml</td><td class="col-md-2">Positive</td><td class="col-md-1">NA</td></tr>
+
+							</tbody>
+						</table>
+
+					</div>
+
+				</div>
+				<div class="modal fade" id="proceduresEntryModal" tabindex="-1"
+					role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<!-- Modal Header -->
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">
+									<span aria-hidden="true">&times;</span> <span class="sr-only">Close</span>
+								</button>
+								<h4 class="modal-title text-center" id="newProcedureLabel">
+									Procedure Entry</h4>
+							</div>
+
+
+							<!-- Modal Body -->
+							<div class="modal-body">
+								<form class="form-horizontal" role="form">
+									<div class="form-group">
+										<label class="col-md-3 control-label">Procedure</label>
+										<div class="col-md-6">
+											<select class="combobox form-control" id="procedureSelect"
+												name="procedureSelect" placeholder="Procedure">
+												<option value="" selected="selected">Procedure</option>
+												<option value="Nastrogastric">Nastrogastric</option>
+												<option value="Oralgastic">Oralgastic</option>
+												<option value="Peritonial Lavage">Peritonial Lavage</option>
+												<option value="Chest Tube">Chest Tube</option>
+												<option value="Urinary Catheter">Urinary Catheter</option>
+												<option value="Pericardial Centesis">Pericardial Centesis</option>
+												<option value="Splint">Splint</option>
+												<option value="Other">Other</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label"></label>
+										<div class="col-md-6" id="otherProcedures" style="display:none;">
+											<input id="otherBox" name="otherBox" type="text"
+												placeholder="" class="form-control input-md">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label">Time</label>
+										<div class="col-md-6 date">
+											<div class="input-group input-append date"
+												id="procedureDatePicker">
+												<input type="text" class="form-control"
+													id="procedureTime" name="procedureTime"
+													placeholder="MM/DD/YYYY HH:MM AM/PM" /> <span
+													class="input-group-addon add-on"><span
+													class="fa fa-calendar"></span></span>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group">
+									<label class="col-md-3 control-label">Tube Type</label>
+										<div class="col-md-6">
+											<input id="tubeTypeBox" name="tubeTypeBox" type="text"
+												placeholder="" class="form-control input-md">
+										</div>
+									</div>
+									<div class="form-group">
+									<label class="col-md-3 control-label">Size</label>
+										<div class="col-md-6">
+											<input id="sizeBox" name="sizeBox" type="text"
+												placeholder="" class="form-control input-md">
+										</div>
+									</div>
+									<div class="form-group">
+									<label class="col-md-3 control-label">Color Drainage</label>
+										<div class="col-md-6">
+											<input id="colorDrainage" name="colorDrainage" type="text"
+												placeholder="" class="form-control input-md">
+										</div>
+									</div>
+									<div class="form-group">
+									<label class="col-md-3 control-label">Amount</label>
+										<div class="col-md-6">
+											<input id="procedureAmount" name="procedureAmount" type="text"
+												placeholder="" class="form-control input-md">
+										</div>
+									</div>
+									<div class="form-group">
+									<label class="col-md-3 control-label">Patient Response</label>
+										<div class="col-md-6">
+											<input id="patientResponse" name="patientResponse" type="text"
+												placeholder="" class="form-control input-md">
+										</div>
+									</div>
+									<div class="form-group">
+									<label class="col-md-3 control-label">Initials</label>
+										<div class="col-md-6">
+											<input id="procedureInitials" name="procedureInitials" type="text"
+												placeholder="Initilas" class="form-control input-md">
+										</div>
+									</div>
+
+								</form>
+							</div>
+
+							<!-- Modal Footer -->
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									id="procedureSave">Save</button>
 							</div>
 
 						</div>
