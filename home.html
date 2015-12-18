@@ -70,7 +70,7 @@
 					</div>
 
 					<!-- Modal Body -->
-					<div class="modal-body" style=" height: 500px;overflow-y: auto;">
+					<div class="modal-body" style="height: 500px; overflow-y: auto;">
 						<form class="form-horizontal" role="form">
 							<div class="form-group">
 								<label class="col-md-3 control-label" for="name">Name</label>
@@ -227,10 +227,14 @@
 								<div class="form-group">
 									<label class="col-md-3 control-label">Mechanism of
 										Injury</label>
-									<div class="col-md-6">
+									<div class="col-md-3">
 										<select id="mechanism-of-injury" multiple="multiple">
 											<option id="auto">Auto/Auto</option>
 											<option id="pedestrian">Auto/Pedestrian</option>
+											<option id="pedestrianvs">Pedestrian Vs.</option>
+											<option id="autovs">Auto Vs.</option>
+											<option id="motorcyclevs">Motorcycle Vs.</option>
+											<option id="bicyclevs">Bicycle Vs.</option>
 											<option id="gunshot">Gunshot Wound</option>
 											<option id="stabbing">Stabbing</option>
 											<option id="fall">Fall/Height</option>
@@ -245,12 +249,39 @@
 											<option id="lowvelocity">Low velocity less than 20
 												mph</option>
 											<option id="unknown">Unknown</option>
+											<option id="otherMechanismOfInjury">Other</option>
 										</select>
+									</div>
+									<div class="col-md-3 col-md-offset-1">
+										<input id="specifyOtherMechanismOfInjury"
+											name="specifyOtherMechanismOfInjury" type="text"
+											placeholder="Specify other" class="form-control input-md"
+											style="display: none;">
+									</div>
+									<div class="col-md-3 col-md-offset-1">
+										<input id="pedestrianvsother" name="pedestrianvsother"
+											type="text" placeholder="Pedestrain Vs "
+											class="form-control input-md" style="display: none;">
+									</div>
+									<div class="col-md-3 col-md-offset-1">
+										<input id="autovsother" name="autovsother" type="text"
+											placeholder="Auto Vs " class="form-control input-md"
+											style="display: none;">
+									</div>
+									<div class="col-md-3 col-md-offset-1">
+										<input id="motorcyclevsother" name="motorcyclevsother"
+											type="text" placeholder="Motorcycle Vs "
+											class="form-control input-md" style="display: none;">
+									</div>
+									<div class="col-md-3 col-md-offset-1">
+										<input id="bicyclevsother" name="bicyclevsother" type="text"
+											placeholder="Bicycle Vs " class="form-control input-md"
+											style="display: none;">
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-md-3 control-label">Time of Injury</label>
-									<div class="col-md-6 date">
+									<div class="col-md-5 date">
 										<div class="input-group input-append date"
 											id="injuryTimeDatePicker">
 											<input type="text" class="form-control" id="injuryTime"
@@ -259,10 +290,16 @@
 												class="fa fa-calendar"></span></span>
 										</div>
 									</div>
+									<div class="col-md-3">
+										<div class="checkbox">
+											<label><input type="checkbox" id="timeUnknown">Unknown</label>
+										</div>
+									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-md-3 control-label">If Automobile accident, was victim</label>
-									<div class="col-md-6">
+									<label class="col-md-3 control-label">If Automobile
+										accident, was victim</label>
+									<div class="col-md-3">
 										<select id="was-victim" multiple="multiple">
 											<option id="driver">Driver</option>
 											<option id="frontseatpassenger">Front seat passenger</option>
@@ -270,21 +307,35 @@
 											<option id="seatbelton">Seat belt on</option>
 											<option id="carseat">Car Seat</option>
 											<option id="airbagdeployed">Air bag deployed</option>
-											<option id="prolongedextrication">Prolonged Extrication</option>
+											<option id="prolongedextrication">Prolonged
+												Extrication</option>
 											<option id="unknown">Unknown</option>
 											<option id="sportinjuries">Sport Injuries</option>
+											<option id="wasVictimOther">Other</option>
 										</select>
+									</div>
+									<div class="col-md-3">
+										<input id="specifyOtherVictim" name="specifyOtherVictim"
+											type="text" placeholder="Specify Other "
+											class="form-control input-md" style="display: none;">
 									</div>
 								</div>
 								<div class="form-group">
-									<label class="col-md-3 control-label">Was the victim wearing</label>
-									<div class="col-md-6">
+									<label class="col-md-3 control-label">Was the victim
+										wearing</label>
+									<div class="col-md-3">
 										<select id="victim-wearing" multiple="multiple">
 											<option id="helmet">Helmet</option>
 											<option id="nohelmet">No Helmet</option>
 											<option id="unknown">Unknown</option>
 											<option id="protectivepads">Protective Pads</option>
+											<option id="wearingOther">Other</option>
 										</select>
+									</div>
+									<div class="col-md-3">
+										<input id="victimWaeringOther" name="victimWaeringOther"
+											type="text" placeholder="Specify Other "
+											class="form-control input-md" style="display: none;">
 									</div>
 								</div>
 							</div>
