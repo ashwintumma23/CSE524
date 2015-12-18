@@ -1,6 +1,6 @@
 # Hospital Web Application
 
-[Live Demo Link](http://ashwintumma23.github.io/CSE524/home.html)
+[Live Demo Link](http://nikhilambekar.github.io/CSE524/home.html)
 
 #### Source Code Directory
 `WebContent`: Source directory
