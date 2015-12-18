@@ -191,6 +191,8 @@ $(document)
                 $("#ivfluids").hide();
                 $("#labStudies").hide();
                 $("#labStudiesRadio").hide();
+                $("#labStudiesRadio").hide();
+                $("#procedures").hide();
                 event.preventDefault();
                 $($anchor.attr('href')).show();
                 event.preventDefault();
